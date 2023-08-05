@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    private WebDriver driver;
+    private static WebDriver driver;
 
     @BeforeClass
     public void startDriver() {
@@ -27,7 +27,7 @@ public class BaseTest {
         driver.navigate().back();
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
 
         return driver;
     }
@@ -36,6 +36,6 @@ public class BaseTest {
     protected void quitDriver() {
 
         System.out.println("Quit driver");
-        //driver.quit();
+        driver.quit();
     }
 }
