@@ -37,6 +37,9 @@ public class SideMenu extends BasePage {
     @FindBy(xpath = "//a[@href='https://bazylika-pszow.pl/?page_id=903']")
     WebElement parishHistory;
 
+    @FindBy(xpath = "//a[@href='https://bazylika-pszow.pl/?page_id=901']")
+    WebElement yesterdayAndNow;
+
     @FindBy(xpath = "//a[@href='https://bazylika-pszow.pl/?page_id=864']")
     WebElement basilicaInside;
 
@@ -67,110 +70,98 @@ public class SideMenu extends BasePage {
     @FindBy(xpath = "//a[@href='https://bazylika-pszow.pl/?page_id=927']")
     WebElement parishCharitableActivities;
 
-    private void scrollIntoElement(WebElement element) {
+    private void clickElement(WebElement element) {
 
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView", element);
+        javascriptExecutor.executeScript("arguments[0].click();", element);
     }
 
     public void clickNewArchbishopLink() {
 
-        scrollIntoElement(newArchbishopLink);
-        newArchbishopLink.click();
+        clickElement(newArchbishopLink);
     }
 
     public void clickParishStatisticsLink() {
 
-        scrollIntoElement(parishStatisticsLink);
-        parishStatisticsLink.click();
+        clickElement(parishStatisticsLink);
     }
 
     public void clickRetransmissionLink() {
 
-        scrollIntoElement(retransmission);
-        retransmission.click();
+        clickElement(retransmission);
     }
 
     public void clickForgivenessReportLink() {
 
-        scrollIntoElement(forgivenessReport);
-        forgivenessReport.click();
+        clickElement(forgivenessReport);
     }
 
     public void clickPlenaryIndulgenceLink() {
 
-        scrollIntoElement(plenaryIndulgence);
-        plenaryIndulgence.click();
+        clickElement(plenaryIndulgence);
     }
 
     public void clickLitanyLink() {
 
-        scrollIntoElement(litany);
-        litany.click();
+        clickElement(litany);
     }
 
     public void clickParishHistoryLink() {
 
-        scrollIntoElement(parishHistory);
-        parishHistory.click();
+        clickElement(parishHistory);
+    }
+
+    public void clickYesterdayAndNowLink() {
+
+        clickElement(yesterdayAndNow);
     }
 
     public void clickBasilicaInsideLink() {
 
-        scrollIntoElement(basilicaInside);
-        basilicaInside.click();
+        clickElement(basilicaInside);
     }
 
     public void clickParishCommunityLink() {
 
-        scrollIntoElement(parishCommunity);
-        parishCommunity.click();
+        clickElement(parishCommunity);
     }
 
     public void clickSacramentsInfoLink() {
 
-        scrollIntoElement(sacramentsInfo);
-        sacramentsInfo.click();
+        clickElement(sacramentsInfo);
     }
 
-    public void clickPszowCalvaryLink() {
+    public void clickCalvaryLink() {
 
-        scrollIntoElement(pszowCalvary);
-        pszowCalvary.click();
+        clickElement(pszowCalvary);
     }
 
     public void clickPhotoGalleryLink() {
 
-        scrollIntoElement(photoGallery);
-        photoGallery.click();
+        clickElement(photoGallery);
     }
 
-    public void clickFilmsLink() {
+    public void clickFilmsLink() throws InterruptedException {
 
-        scrollIntoElement(films);
-        films.click();
+        clickElement(films);
     }
 
     public void clickEveningWithJesusLink() {
 
-        scrollIntoElement(eveningWithJesus);
-        eveningWithJesus.click();
+        clickElement(eveningWithJesus);
     }
 
     public void clickCemeteryRegulationsLink() {
 
-        scrollIntoElement(cemeteryRegulations);
-        cemeteryRegulations.click();
+        clickElement(cemeteryRegulations);
     }
 
     public void clickDelegateLink() {
 
-        scrollIntoElement(delegate);
-        delegate.click();
+        clickElement(delegate);
     }
 
     public void clickParishCharitableActivitiesLink() {
 
-        scrollIntoElement(parishCharitableActivities);
-        parishCharitableActivities.click();
+        clickElement(parishCharitableActivities);
     }
 }
