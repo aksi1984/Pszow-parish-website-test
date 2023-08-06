@@ -33,7 +33,7 @@ public class ExtentReportsManager {
         extentReports.setSystemInfo("Maximum memory", String.valueOf(Runtime.getRuntime().maxMemory()));
         extentReports.setSystemInfo("Free memory", String.valueOf(Runtime.getRuntime().freeMemory()));
         extentReports.setSystemInfo("System property", System.getProperty("user.dir"));
-        extentReports.setSystemInfo("Operating system", System.getProperty("os.name") + System.getProperty("os.arch"));
+        extentReports.setSystemInfo("Operating system", System.getProperty("os.name") + " " + System.getProperty("os.arch"));
         extentReports.setSystemInfo("Browser", ((RemoteWebDriver) BaseTest.getDriver()).getCapabilities().getBrowserName() + " " +
                 ((RemoteWebDriver) BaseTest.getDriver()).getCapabilities().getBrowserVersion());
         extentReports.setSystemInfo("Java runtime version", System.getProperty("java.runtime.version"));
