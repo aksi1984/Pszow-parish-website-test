@@ -1,0 +1,66 @@
+{
+    "searchEngine": {
+
+        "positive": [
+
+            "OGŁOSZENIA",
+            "KONTAKT",
+            "GALERIA"
+        ],
+
+        "negative": [
+
+            "zzzzzzzzzz",
+            "^&$*&^%$",
+            "123 parish"
+        ]
+    },
+
+    "URLs": {
+
+        "mainMenu": [
+
+            "https://bazylika-pszow.pl/?page_id=882",
+            "https://bazylika-pszow.pl/?page_id=859",
+            "https://bazylika-pszow.pl/?page_id=13831",
+            "https://bazylika-pszow.pl/?page_id=861",
+            "https://bazylika-pszow.pl/?page_id=879",
+            "https://bazylika-pszow.pl/?page_id=1321",
+            "https://bazylika-pszow.pl/?page_id=106",
+            "https://bazylika-pszow.pl/?page_id=18182",
+            "https://bazylika-pszow.pl/?page_id=18885"
+        ],
+
+        "sideMenu": [
+
+            "https://bazylika-pszow.pl/?page_id=24016",
+            "https://bazylika-pszow.pl/?page_id=22399",
+            "https://katowice.tvp.pl/62817326/miedzy-tajemnicami?fbclid=IwAR3UfBFvjaes7tKYnkO3FU2GYuG1BCe5LTu_46kzfuYGh4L9OYpWQjD3Q-w",
+            "https://bazylika-pszow.pl/?page_id=22181",
+            "https://bazylika-pszow.pl/?page_id=22172",
+            "https://bazylika-pszow.pl/?page_id=13887",
+            "https://bazylika-pszow.pl/?page_id=903",
+            "https://bazylika-pszow.pl/?page_id=901",
+            "https://bazylika-pszow.pl/?page_id=864",
+            "https://bazylika-pszow.pl/?page_id=901",
+            "https://bazylika-pszow.pl/?page_id=8138",
+            "https://bazylika-pszow.pl/?page_id=17472",
+            "https://bazylika-pszow.pl/?page_id=863",
+            "https://bazylika-pszow.pl/?page_id=7360",
+            "https://bazylika-pszow.pl/?page_id=862",
+            "https://bazylika-pszow.pl/?page_id=8079",
+            "https://bazylika-pszow.pl/?page_id=1862",
+            "https://bazylika-pszow.pl/?page_id=16781",
+            "https://bazylika-pszow.pl/?page_id=927"
+        ],
+
+        "middleMenu": [
+
+            "Zanim przejdziesz do YouTube",
+            "Parafia Narodzenia Najświętszej Maryi Panny w Pszowie | Pszów",
+            "Archidiecezja Katowicka - Strona główna"
+        ]
+    }
+
+    
+}
