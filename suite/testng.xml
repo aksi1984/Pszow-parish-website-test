@@ -3,8 +3,10 @@
 
 <suite name="Pszów parish website tests">
     <suite-files>
-        <suite-file path="mainMenu.xml"/>
-        <suite-file path="sideMenu.xml"/>
+        <!--<suite-file path="mainMenu.xml"/>-->
+        <!--<suite-file path="sideMenu.xml"/>-->
+        <!--<suite-file path="searchEngine.xml"/>-->
+        <suite-file path="middleMenu.xml"></suite-file>
     </suite-files>
 
 </suite>
