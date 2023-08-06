@@ -5,7 +5,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import qa.driver.Driver;
 import qa.enums.Browser;
-import java.util.concurrent.TimeUnit;
+import qa.utils.JSONReader;
+
+import java.time.Duration;
+
 
 public class BaseTest {
 
@@ -18,8 +21,10 @@ public class BaseTest {
 
         driver = Driver.createDriver(Browser.CHROME);
         driver.navigate().to("https://bazylika-pszow.pl");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+
+        JSONReader.read("./src/main/resources/data.json");
     }
 
     public void back() {
