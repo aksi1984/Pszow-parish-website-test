@@ -21,93 +21,82 @@ public class MainMenuTest extends BaseTest {
         expectedResults = JSONReader.get("URLs", "mainMenu");
     }
 
+    private void check(String linkText, int index) {
+
+        mainMenu.click(linkText);
+
+        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[index]);
+    }
+
     @Test(priority = 1)
     public void pastoralAnnouncements() {
 
-        ExtentReportsManager.setTestName("OGŁOSZENIA DUSZPASTERSKIE link");
+        ExtentReportsManager.setTestName("\"OGŁOSZENIA DUSZPASTERSKIE\" link");
 
-        mainMenu.click("OGŁOSZENIA DUSZPASTERSKIE");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.PASTORAL_ANNOUNCEMENTS]);
+        check("OGŁOSZENIA DUSZPASTERSKIE", MainMenuURLs.PASTORAL_ANNOUNCEMENTS);
     }
 
     @Test(priority = 2)
     public void massIntentions() {
 
-        ExtentReportsManager.setTestName("INTENCJE MSZALNE link");
+        ExtentReportsManager.setTestName("\"INTENCJE MSZALNE\" link");
 
-        mainMenu.click("INTENCJE MSZALNE");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.MASS_INTENTIONS]);
+        check("INTENCJE MSZALNE", MainMenuURLs.MASS_INTENTIONS);
     }
 
     @Test(priority = 3)
     public void funerals() {
 
-        ExtentReportsManager.setTestName("POGRZEBY link");
+        ExtentReportsManager.setTestName("\"POGRZEBY\" link");
 
-        mainMenu.click("POGRZEBY");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.FUNERALS]);
+        check("POGRZEBY", MainMenuURLs.FUNERALS);
     }
 
     @Test(priority = 4)
     public void stewards() {
 
-        ExtentReportsManager.setTestName("SZAFARZE link");
+        ExtentReportsManager.setTestName("\"SZAFARZE\" link");
 
-        mainMenu.click("SZAFARZE");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.STEWARDS]);
+        check("SZAFARZE", MainMenuURLs.STEWARDS);
     }
 
     @Test(priority = 5)
     public void priests() {
 
-        ExtentReportsManager.setTestName("DUSZPASTERZE link");
+        ExtentReportsManager.setTestName("\"DUSZPASTERZE\" link");
 
-        mainMenu.click("DUSZPASTERZE");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.PRIESTS]);
+        check("DUSZPASTERZE", MainMenuURLs.PRIESTS);
     }
 
     @Test(priority = 6)
     public void office() {
 
-        ExtentReportsManager.setTestName("KANCELARIA link");
+        ExtentReportsManager.setTestName("\"KANCELARIA\" link");
 
-        mainMenu.click("KANCELARIA");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.OFFICE]);
+        check("KANCELARIA", MainMenuURLs.OFFICE);
     }
 
     @Test(priority = 7)
     public void contact() {
 
-        ExtentReportsManager.setTestName("KONTAKT link");
+        ExtentReportsManager.setTestName("\"KONTAKT\" link");
 
-        mainMenu.click("KONTAKT");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.CONTACT]);
+        check("KONTAKT", MainMenuURLs.CONTACT);
     }
 
     @Test(priority = 8)
     public void parishSupport() {
 
-        ExtentReportsManager.setTestName("WSPARCIE PARAFII link");
+        ExtentReportsManager.setTestName("\"WSPARCIE PARAFII\" link");
 
-        mainMenu.click("WSPARCIE PARAFII");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.PARISH_SUPPORT]);
+        check("WSPARCIE PARAFII", MainMenuURLs.PARISH_SUPPORT);
     }
 
     @Test(priority = 9)
     public void confession() {
 
-        ExtentReportsManager.setTestName("SPOWIEDŻ W BAZYLICE link");
+        ExtentReportsManager.setTestName("\"SPOWIEDŻ W BAZYLICE\" link");
 
-        mainMenu.click("SPOWIEDŹ W BAZYLICE");
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[MainMenuURLs.CONFESSION]);
+        check("SPOWIEDŹ W BAZYLICE", MainMenuURLs.CONFESSION);
     }
 }
