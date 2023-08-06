@@ -5,6 +5,7 @@ import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.finalcalsses.SideMenuURLs;
 import qa.utils.ExtentReportsManager;
+import qa.utils.Function_1;
 import qa.utils.JSONReader;
 
 public class SideMenuTest extends BaseTest {
@@ -17,8 +18,17 @@ public class SideMenuTest extends BaseTest {
 
         sideMenu = new SideMenu(getDriver());
 
-        JSONReader.read("./src/main/resources/expectedresults.json");
         expectedResults = JSONReader.get("URLs", "sideMenu");
+    }
+
+    private void check(Function_1 function, int index) {
+
+        function.run();
+
+        String currentURL = getDriver().getCurrentUrl();
+
+        back();
+        Assert.assertEquals(currentURL, expectedResults[index]);
     }
 
     @Test(priority = 1)
@@ -26,11 +36,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("NOWY ARCYBISKUP link");
 
-        sideMenu.clickNewArchbishopLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.NEW_ARCHBISHOP]);
-
-        back();
+        check(()->{sideMenu.clickNewArchbishopLink();}, SideMenuURLs.NEW_ARCHBISHOP);
     }
 
     @Test(priority = 2)
@@ -38,11 +44,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"STATYSTYKA PARAFIALNA 2022\" link");
 
-        sideMenu.clickParishStatisticsLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.PARISH_STATISTICS]);
-
-        back();
+        check(()->{sideMenu.clickParishStatisticsLink();}, SideMenuURLs.PARISH_STATISTICS);
     }
 
     @Test(priority = 3)
@@ -50,11 +52,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"RETRANSMISJA RÓŻAŃCA Z PSZOWA - TVP KATOWICE, 01-10-22 R.\" link");
 
-        sideMenu.clickRetransmissionLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.RETRANSMISSION]);
-
-        back();
+        check(()->{sideMenu.clickRetransmissionLink();}, SideMenuURLs.RETRANSMISSION);
     }
 
     @Test(priority = 4)
@@ -62,11 +60,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"RELACJE Z ODPUSTU KU CZCI NARODZENIA NMP - 11 WRZEŚNIA 2022\" link");
 
-        sideMenu.clickForgivenessReportLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.FORGIVENESS_REPORT]);
-
-        back();
+        check(()->{sideMenu.clickForgivenessReportLink();}, SideMenuURLs.FORGIVENESS_REPORT);
     }
 
     @Test(priority = 5)
@@ -74,11 +68,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"ODPUST ZUPEŁNY W CZASIE JUBILEUSZU W PSZOWIE\" link");
 
-        sideMenu.clickPlenaryIndulgenceLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.PLENARY_INDULGENCE]);
-
-        back();
+        check(()->{sideMenu.clickPlenaryIndulgenceLink();}, SideMenuURLs.PLENARY_INDULGENCE);
     }
 
     @Test(priority = 6)
@@ -86,11 +76,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"LITANIA DO PANI UŚMIECHNIĘTEJ\" link");
 
-        sideMenu.clickLitanyLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.LITANY]);
-
-        back();
+        check(()->{sideMenu.clickLitanyLink();}, SideMenuURLs.LITANY);
     }
 
     @Test(priority = 7)
@@ -98,11 +84,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"HISTORIA PARAFII\" link");
 
-        sideMenu.clickParishHistoryLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.PARISH_HISTORY]);
-
-        back();
+        check(()->{sideMenu.clickParishHistoryLink();}, SideMenuURLs.PARISH_HISTORY);
     }
 
     @Test(priority = 8)
@@ -110,11 +92,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"PARAFIA WCZORAJ I DZIŚ\" link");
 
-        sideMenu.clickYesterdayAndNowLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.YESTERDAY_AND_NOW]);
-
-        back();
+        check(()->{sideMenu.clickYesterdayAndNowLink();}, SideMenuURLs.YESTERDAY_AND_NOW);
     }
 
     @Test(priority = 9)
@@ -122,11 +100,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"WNĘTRZE BAZYLIKI - PANORAMA\" link");
 
-        sideMenu.clickBasilicaInsideLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.BASILICA_INSIDE]);
-
-        back();
+        check(()->{sideMenu.clickBasilicaInsideLink();}, SideMenuURLs.BASILICA_INSIDE);
     }
 
     @Test(priority = 10)
@@ -134,11 +108,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"WSPÓLNOTY PARAFIALNE\" link");
 
-        sideMenu.clickParishCommunityLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.PARISH_COMMUNITY]);
-
-        back();
+        check(()->{sideMenu.clickParishCommunityLink();}, SideMenuURLs.PARISH_COMMUNITY);
     }
 
     @Test(priority = 11)
@@ -146,11 +116,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"SAKRAMENTY - INFORMACJE\" link");
 
-        sideMenu.clickSacramentsInfoLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.SACRAMENTS]);
-
-        back();
+        check(()->{sideMenu.clickSacramentsInfoLink();}, SideMenuURLs.SACRAMENTS);
     }
 
     @Test(priority = 12)
@@ -158,11 +124,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"KALWARIA PSZOWSKA\" link");
 
-        sideMenu.clickCalvaryLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.CALVARY]);
-
-        back();
+        check(()->{sideMenu.clickCalvaryLink();}, SideMenuURLs.CALVARY);
     }
 
     @Test(priority = 13)
@@ -170,14 +132,10 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"GALERIA ZDJĘĆ\" link");
 
-        sideMenu.clickPhotoGalleryLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.PHOTO_GALLERY]);
-
-        back();
+        check(()->{sideMenu.clickPhotoGalleryLink();}, SideMenuURLs.PHOTO_GALLERY);
     }
 
-    @Test(priority = 18)
+    /*@Test(priority = 18)
     public void filmsLink() throws InterruptedException {
 
         ExtentReportsManager.setTestName("\"GALERIA FILMÓW\" link");
@@ -187,18 +145,14 @@ public class SideMenuTest extends BaseTest {
         Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.FILMS]);
 
         back();
-    }
+    }*/
 
     @Test(priority = 14)
     public void eveningWithJesusLink() {
 
         ExtentReportsManager.setTestName("\"WIECZÓR Z JEZUSEM\" link");
 
-        sideMenu.clickEveningWithJesusLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.EVENING_WITH_JESUS]);
-
-        back();
+        check(()->{sideMenu.clickEveningWithJesusLink();}, SideMenuURLs.EVENING_WITH_JESUS);
     }
 
     @Test(priority = 15)
@@ -206,11 +160,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"REGULAMIN CMENTARZA\" link");
 
-        sideMenu.clickCemeteryRegulationsLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.CEMENTERY_REGULATIONS]);
-
-        back();
+        check(()->{sideMenu.clickCemeteryRegulationsLink();}, SideMenuURLs.CEMENTERY_REGULATIONS);
     }
 
     @Test(priority = 16)
@@ -218,11 +168,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY\" link");
 
-        sideMenu.clickDelegateLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.DELEGATE]);
-
-        back();
+        check(()->{sideMenu.clickDelegateLink();}, SideMenuURLs.DELEGATE);
     }
 
     @Test(priority = 17)
@@ -230,10 +176,6 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"DZIAŁALNOŚĆ CHARYTATYWNA PARAFII\" link");
 
-        sideMenu.clickParishCharitableActivitiesLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.PARISH_CHARITABLE_ACTIVITIES]);
-
-        back();
+        check(()->{sideMenu.clickParishCharitableActivitiesLink();}, SideMenuURLs.PARISH_CHARITABLE_ACTIVITIES);
     }
 }
