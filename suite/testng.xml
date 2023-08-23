@@ -6,7 +6,8 @@
         <!--<suite-file path="mainMenu.xml"/>-->
         <!--<suite-file path="sideMenu.xml"/>-->
         <!--<suite-file path="searchEngine.xml"/>-->
-        <suite-file path="middleMenu.xml"></suite-file>
+        <!--<suite-file path="middleMenu.xml"></suite-file>-->
+        <suite-file path="basilicaInside.xml"/>
     </suite-files>
 
 </suite>
