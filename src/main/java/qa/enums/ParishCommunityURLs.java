@@ -1,0 +1,19 @@
+package qa.enums;
+
+public enum ParishCommunityURLs {
+
+    PRIESTS,
+    PASTORAL_COUNCIL,
+    STEWARDS,
+    ALTAR_BOYS,
+    CHILDREN_OF_MARY,
+    YOUTH_OASIS,
+    HOME_CHURCH,
+    ADULT_CATECHESIS,
+    LEGION_OF_MARY,
+    MIRACULOUSY_SAVED,
+    LIVING_ROSARY,
+    LECTIO_DIVINA,
+    SECULAR_ORDER,
+    EVENING_WITH_JESUS
+}
