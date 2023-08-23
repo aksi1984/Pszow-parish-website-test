@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.MiddleMenu;
-import qa.finalcalsses.MiddleMenuURLs;
+import qa.enums.MiddleMenuURLs;
 import qa.utils.ExtentReportsManager;
 import qa.utils.Function_1;
 import qa.utils.JSONReader;
@@ -27,7 +27,7 @@ public class MiddleMenuTest extends BaseTest {
 
         return new ArrayList<>(getDriver().getWindowHandles());
     }
-    private void check(Function_1 function_1, Function_1 function_2, int index) throws InterruptedException {
+    private void check(Function_1 function_1, Function_1 function_2, MiddleMenuURLs index) {
 
         function_1.run();
 
@@ -39,11 +39,11 @@ public class MiddleMenuTest extends BaseTest {
         System.out.println(currentTitle);
         function_2.run();
 
-        Assert.assertEquals(currentTitle, expectedResults[index]);
+        Assert.assertEquals(currentTitle, expectedResults[index.ordinal()]);
     }
 
     @Test(priority = 3)
-    public void cameraLink() throws InterruptedException {
+    public void cameraLink() {
 
         ExtentReportsManager.setTestName("\"Zobacz kościół z perspektywy NOWEJ kamery online\" link");
 
@@ -51,7 +51,7 @@ public class MiddleMenuTest extends BaseTest {
     }
 
     @Test(priority = 2)
-    public void facebookLink() throws InterruptedException {
+    public void facebookLink() {
 
         ExtentReportsManager.setTestName("\"Zobacz nas na facebook'u!\"");
 
@@ -61,7 +61,7 @@ public class MiddleMenuTest extends BaseTest {
     }
 
     @Test(priority = 1)
-    public void archdioceseLink() throws InterruptedException {
+    public void archdioceseLink() {
 
         ExtentReportsManager.setTestName("\"Główna strona Archidiecezji Katowickiej\"");
 
