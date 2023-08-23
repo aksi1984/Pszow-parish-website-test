@@ -42,7 +42,6 @@
             "https://bazylika-pszow.pl/?page_id=903",
             "https://bazylika-pszow.pl/?page_id=901",
             "https://bazylika-pszow.pl/?page_id=864",
-            "https://bazylika-pszow.pl/?page_id=901",
             "https://bazylika-pszow.pl/?page_id=8138",
             "https://bazylika-pszow.pl/?page_id=17472",
             "https://bazylika-pszow.pl/?page_id=863",
@@ -59,6 +58,39 @@
             "Zanim przejdziesz do YouTube",
             "Parafia Narodzenia Najświętszej Maryi Panny w Pszowie | Pszów",
             "Archidiecezja Katowicka - Strona główna"
+        ],
+
+        "presbytery": [
+
+            "https://www.ai360.pl/panoramy/157,1103.html"
+        ],
+
+        "parishCommunity": [
+
+            "https://bazylika-pszow.pl/?page_id=879",
+            "https://bazylika-pszow.pl/?page_id=1302",
+            "https://bazylika-pszow.pl/?page_id=861",
+            "https://bazylika-pszow.pl/?page_id=952",
+            "https://bazylika-pszow.pl/?page_id=958",
+            "https://bazylika-pszow.pl/?page_id=965",
+            "https://bazylika-pszow.pl/?page_id=1449",
+            "https://bazylika-pszow.pl/?page_id=924",
+            "https://bazylika-pszow.pl/?page_id=925",
+            "https://bazylika-pszow.pl/?page_id=12068",
+            "https://bazylika-pszow.pl/?page_id=972",
+            "https://bazylika-pszow.pl/?page_id=969",
+            "https://bazylika-pszow.pl/?page_id=970",
+            "https://bazylika-pszow.pl/?page_id=8079"
+        ],
+
+        "sacraments": [
+
+            "https://bazylika-pszow.pl/?page_id=930",
+            "https://bazylika-pszow.pl/?page_id=949",
+            "https://bazylika-pszow.pl/?page_id=935",
+            "https://bazylika-pszow.pl/?page_id=933",
+            "https://bazylika-pszow.pl/?page_id=936",
+            "https://bazylika-pszow.pl/?page_id=937"
         ]
     }
 
