@@ -1,6 +1,5 @@
 package qa.components;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,12 +7,9 @@ import qa.base.BasePage;
 
 public class MiddleMenu extends BasePage {
 
-    private JavascriptExecutor javascriptExecutor;
     public MiddleMenu(WebDriver driver) {
 
         super(driver);
-
-        javascriptExecutor = (JavascriptExecutor) getDriver();
     }
 
     @FindBy(xpath = "//a[@href='https://www.youtube.com/channel/UC2yRQAn3eXbBjO7zOQmde2g']")
@@ -25,22 +21,18 @@ public class MiddleMenu extends BasePage {
     @FindBy(xpath = "//a[@href='https://www.archidiecezjakatowicka.pl/']")
     WebElement archdioceseLink;
 
-    private void click(WebElement element) {
-
-        javascriptExecutor.executeScript("arguments[0].click();", element);
-    }
     public void clickCameraLink() {
 
-        click(cameraLink);
+        clickElement(cameraLink);
     }
 
     public void clickArchdioceseLink() {
 
-        click(archdioceseLink);
+        clickElement(archdioceseLink);
     }
 
     public void clickFacebookLink() {
 
-        click(facebookLink);
+        clickElement(facebookLink);
     }
 }

@@ -3,9 +3,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.SideMenu;
-import qa.finalcalsses.SideMenuURLs;
 import qa.utils.ExtentReportsManager;
-import qa.utils.Function_1;
+import qa.enums.SideMenuURLs;
 import qa.utils.JSONReader;
 
 public class SideMenuTest extends BaseTest {
@@ -21,14 +20,14 @@ public class SideMenuTest extends BaseTest {
         expectedResults = JSONReader.get("URLs", "sideMenu");
     }
 
-    private void check(Function_1 function, int index) {
+    private void check(SideMenuURLs index) {
 
-        function.run();
+        sideMenu.click(index.ordinal());
 
         String currentURL = getDriver().getCurrentUrl();
 
         back();
-        Assert.assertEquals(currentURL, expectedResults[index]);
+        Assert.assertEquals(currentURL, expectedResults[index.ordinal()]);
     }
 
     @Test(priority = 1)
@@ -36,7 +35,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("NOWY ARCYBISKUP link");
 
-        check(()->{sideMenu.clickNewArchbishopLink();}, SideMenuURLs.NEW_ARCHBISHOP);
+        check(SideMenuURLs.NEW_ARCHBISHOP);
     }
 
     @Test(priority = 2)
@@ -44,7 +43,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"STATYSTYKA PARAFIALNA 2022\" link");
 
-        check(()->{sideMenu.clickParishStatisticsLink();}, SideMenuURLs.PARISH_STATISTICS);
+        check(SideMenuURLs.PARISH_STATISTICS);
     }
 
     @Test(priority = 3)
@@ -52,7 +51,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"RETRANSMISJA RÓŻAŃCA Z PSZOWA - TVP KATOWICE, 01-10-22 R.\" link");
 
-        check(()->{sideMenu.clickRetransmissionLink();}, SideMenuURLs.RETRANSMISSION);
+        check(SideMenuURLs.RETRANSMISSION);
     }
 
     @Test(priority = 4)
@@ -60,7 +59,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"RELACJE Z ODPUSTU KU CZCI NARODZENIA NMP - 11 WRZEŚNIA 2022\" link");
 
-        check(()->{sideMenu.clickForgivenessReportLink();}, SideMenuURLs.FORGIVENESS_REPORT);
+        check(SideMenuURLs.FORGIVENESS_REPORT);
     }
 
     @Test(priority = 5)
@@ -68,7 +67,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"ODPUST ZUPEŁNY W CZASIE JUBILEUSZU W PSZOWIE\" link");
 
-        check(()->{sideMenu.clickPlenaryIndulgenceLink();}, SideMenuURLs.PLENARY_INDULGENCE);
+        check(SideMenuURLs.PLENARY_INDULGENCE);
     }
 
     @Test(priority = 6)
@@ -76,7 +75,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"LITANIA DO PANI UŚMIECHNIĘTEJ\" link");
 
-        check(()->{sideMenu.clickLitanyLink();}, SideMenuURLs.LITANY);
+        check(SideMenuURLs.LITANY);
     }
 
     @Test(priority = 7)
@@ -84,7 +83,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"HISTORIA PARAFII\" link");
 
-        check(()->{sideMenu.clickParishHistoryLink();}, SideMenuURLs.PARISH_HISTORY);
+        check(SideMenuURLs.PARISH_HISTORY);
     }
 
     @Test(priority = 8)
@@ -92,7 +91,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"PARAFIA WCZORAJ I DZIŚ\" link");
 
-        check(()->{sideMenu.clickYesterdayAndNowLink();}, SideMenuURLs.YESTERDAY_AND_NOW);
+        check(SideMenuURLs.YESTERDAY_AND_NOW);
     }
 
     @Test(priority = 9)
@@ -100,7 +99,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"WNĘTRZE BAZYLIKI - PANORAMA\" link");
 
-        check(()->{sideMenu.clickBasilicaInsideLink();}, SideMenuURLs.BASILICA_INSIDE);
+        check(SideMenuURLs.BASILICA_INSIDE);
     }
 
     @Test(priority = 10)
@@ -108,7 +107,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"WSPÓLNOTY PARAFIALNE\" link");
 
-        check(()->{sideMenu.clickParishCommunityLink();}, SideMenuURLs.PARISH_COMMUNITY);
+        check(SideMenuURLs.PARISH_COMMUNITY);
     }
 
     @Test(priority = 11)
@@ -116,7 +115,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"SAKRAMENTY - INFORMACJE\" link");
 
-        check(()->{sideMenu.clickSacramentsInfoLink();}, SideMenuURLs.SACRAMENTS);
+        check(SideMenuURLs.SACRAMENTS);
     }
 
     @Test(priority = 12)
@@ -124,7 +123,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"KALWARIA PSZOWSKA\" link");
 
-        check(()->{sideMenu.clickCalvaryLink();}, SideMenuURLs.CALVARY);
+        check(SideMenuURLs.CALVARY);
     }
 
     @Test(priority = 13)
@@ -132,7 +131,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"GALERIA ZDJĘĆ\" link");
 
-        check(()->{sideMenu.clickPhotoGalleryLink();}, SideMenuURLs.PHOTO_GALLERY);
+        check(SideMenuURLs.PHOTO_GALLERY);
     }
 
     /*@Test(priority = 18)
@@ -152,7 +151,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"WIECZÓR Z JEZUSEM\" link");
 
-        check(()->{sideMenu.clickEveningWithJesusLink();}, SideMenuURLs.EVENING_WITH_JESUS);
+        check(SideMenuURLs.EVENING_WITH_JESUS);
     }
 
     @Test(priority = 15)
@@ -160,7 +159,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"REGULAMIN CMENTARZA\" link");
 
-        check(()->{sideMenu.clickCemeteryRegulationsLink();}, SideMenuURLs.CEMENTERY_REGULATIONS);
+        check(SideMenuURLs.CEMENTERY_REGULATIONS);
     }
 
     @Test(priority = 16)
@@ -168,7 +167,7 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY\" link");
 
-        check(()->{sideMenu.clickDelegateLink();}, SideMenuURLs.DELEGATE);
+        check(SideMenuURLs.DELEGATE);
     }
 
     @Test(priority = 17)
@@ -176,6 +175,6 @@ public class SideMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"DZIAŁALNOŚĆ CHARYTATYWNA PARAFII\" link");
 
-        check(()->{sideMenu.clickParishCharitableActivitiesLink();}, SideMenuURLs.PARISH_CHARITABLE_ACTIVITIES);
+        check(SideMenuURLs.PARISH_CHARITABLE_ACTIVITIES);
     }
 }
