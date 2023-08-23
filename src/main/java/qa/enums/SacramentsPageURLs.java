@@ -1,0 +1,11 @@
+package qa.enums;
+
+public enum SacramentsPageURLs {
+
+    SACRAMENT_OF_BAPTISM,
+    EUCHARIST,
+    SACRAMENT_OF_PENANCE,
+    CONFIRMATION,
+    SACRAMENT_OF_MARRIAGE,
+    SACRAMENT_OF_THE_SICK
+}
