@@ -3,7 +3,7 @@ import qa.base.BaseTest;
 import qa.components.MainMenu;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import qa.finalcalsses.MainMenuURLs;
+import qa.enums.MainMenuURLs;
 import qa.utils.ExtentReportsManager;
 import qa.utils.JSONReader;
 
@@ -17,15 +17,15 @@ public class MainMenuTest extends BaseTest {
 
         mainMenu = new MainMenu(getDriver());
 
-        JSONReader.read("./src/main/resources/expectedresults.json");
+        JSONReader.read("./src/main/resources/data.json");
         expectedResults = JSONReader.get("URLs", "mainMenu");
     }
 
-    private void check(String linkText, int index) {
+    private void check(String linkText, MainMenuURLs index) {
 
         mainMenu.click(linkText);
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[index]);
+        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[index.ordinal()]);
     }
 
     @Test(priority = 1)
