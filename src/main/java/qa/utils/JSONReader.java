@@ -1,6 +1,5 @@
 package qa.utils;
 
-import com.google.gson.JsonArray;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
