@@ -8,6 +8,7 @@ import qa.enums.Browser;
 import qa.utils.JSONReader;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 
 public class BaseTest {
@@ -25,6 +26,11 @@ public class BaseTest {
         driver.manage().window().maximize();
 
         JSONReader.read("./src/main/resources/data.json");
+    }
+
+    public ArrayList<String> getTabs() {
+
+        return new ArrayList<>(driver.getWindowHandles());
     }
 
     public void back() {
