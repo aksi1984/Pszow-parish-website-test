@@ -6,9 +6,9 @@ import qa.base.BaseTest;
 import qa.components.MiddleMenu;
 import qa.enums.MiddleMenuURLs;
 import qa.utils.ExtentReportsManager;
-import qa.utils.Function_1;
+import qa.utils.Function;
 import qa.utils.JSONReader;
-import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class MiddleMenuTest extends BaseTest {
 
@@ -23,21 +23,16 @@ public class MiddleMenuTest extends BaseTest {
         expectedResults = JSONReader.get("URLs", "middleMenu");
     }
 
-    private ArrayList<String> getTabs() {
+    private void check(Consumer<MiddleMenu> function1, Function function2, MiddleMenuURLs index) {
 
-        return new ArrayList<>(getDriver().getWindowHandles());
-    }
-    private void check(Function_1 function_1, Function_1 function_2, MiddleMenuURLs index) {
-
-        function_1.run();
+        function1.accept(middleMenu);
 
         JavascriptExecutor executor = (JavascriptExecutor) getDriver();
         executor.executeScript("return document.readyState");
 
         getDriver().switchTo().window(getTabs().get(getTabs().size() - 1));
         String currentTitle = getDriver().getTitle();
-        System.out.println(currentTitle);
-        function_2.run();
+        function2.accept();
 
         Assert.assertEquals(currentTitle, expectedResults[index.ordinal()]);
     }
@@ -47,7 +42,7 @@ public class MiddleMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"Zobacz kościół z perspektywy NOWEJ kamery online\" link");
 
-        check(()->{middleMenu.clickCameraLink();}, ()->{ }, MiddleMenuURLs.CAMERA);
+        check(MiddleMenu::clickCameraLink, ()->{ }, MiddleMenuURLs.CAMERA);
     }
 
     @Test(priority = 2)
@@ -55,9 +50,7 @@ public class MiddleMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"Zobacz nas na facebook'u!\"");
 
-        check(()->{middleMenu.clickFacebookLink();},
-              ()->{ getDriver().switchTo().window(getTabs().get(0)); },
-                    MiddleMenuURLs.FACEBOOK);
+        check(MiddleMenu::clickFacebookLink, ()->{getDriver().switchTo().window(getTabs().get(0));}, MiddleMenuURLs.FACEBOOK);
     }
 
     @Test(priority = 1)
@@ -65,6 +58,6 @@ public class MiddleMenuTest extends BaseTest {
 
         ExtentReportsManager.setTestName("\"Główna strona Archidiecezji Katowickiej\"");
 
-        check(()->{middleMenu.clickArchdioceseLink();}, this::back, MiddleMenuURLs.ARCHDIOCESE);
+        check(MiddleMenu::clickArchdioceseLink, this::back, MiddleMenuURLs.ARCHDIOCESE);
     }
 }
