@@ -6,8 +6,9 @@ import qa.components.MainMenu;
 import qa.components.SearchEngine;
 import qa.components.SearchResultPage;
 import qa.utils.ExtentReportsManager;
-import qa.utils.Function_2;
 import qa.utils.Provider;
+
+import java.util.function.Consumer;
 
 public class SearchEngineTest extends BaseTest {
 
@@ -28,20 +29,19 @@ public class SearchEngineTest extends BaseTest {
     public void clicking() {
 
         ExtentReportsManager.setTestName("Clicking on the search engine field");
-
         searchEngine.clickOnField();
 
         Assert.assertEquals(searchEngine.getFieldValue(), "");
     }
 
-    private void check(String[] data, Function_2 function) {
+    private void check(String[] data, Consumer<Boolean> consumer) {
 
         for (String phrase : data) {
 
             searchEngine.setPhrase(phrase);
             boolean state = searchResultPage.isContainerPageContentPresent();
             back();
-            function.run(state);
+            consumer.accept(state);
         }
     }
 
@@ -50,7 +50,7 @@ public class SearchEngineTest extends BaseTest {
 
         ExtentReportsManager.setTestName("Searching with correct phrase");
 
-        check(data, (a)->{Assert.assertTrue(a);});
+        check(data, Assert::assertTrue);
     }
 
     @Test(priority = 3, dataProvider = "incorrectPhrase", dataProviderClass = Provider.class)
@@ -58,6 +58,6 @@ public class SearchEngineTest extends BaseTest {
 
         ExtentReportsManager.setTestName("Searching with incorrect phrase");
 
-        check(data, (a)->{Assert.assertFalse(a);});
+        check(data, Assert::assertFalse);
     }
 }
