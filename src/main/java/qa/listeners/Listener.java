@@ -1,11 +1,23 @@
 package qa.listeners;
 
+import io.qameta.allure.Attachment;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import qa.utils.ExtentReportsManager;
 
 public class Listener implements ITestListener {
+
+    private static String getTestMethodName(ITestResult iTestResult) {
+
+        return iTestResult.getMethod().getConstructorOrMethod().getName();
+    }
+
+    @Attachment(value = "{0}", type = "text/plain")
+    public static String saveTextLog(String message) {
+
+        return message;
+    }
 
     @Override
     public void onStart(ITestContext iTestContext) {
@@ -30,17 +42,23 @@ public class Listener implements ITestListener {
     public void onTestSuccess(ITestResult iTestResult) {
 
         ExtentReportsManager.setTestPassed("Test passed on method " + iTestResult.getMethod().getMethodName());
+
+        saveTextLog(getTestMethodName(iTestResult) + "- passed");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
 
         ExtentReportsManager.setTestFailed("Test failed on method " + iTestResult.getMethod().getMethodName());
+
+        saveTextLog(getTestMethodName(iTestResult) + "- failed");
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
 
         ExtentReportsManager.setTestSkipped("Test skipped on method " + iTestResult.getMethod().getMethodName());
+
+        saveTextLog(getTestMethodName(iTestResult) + "- skipped");
     }
 }
