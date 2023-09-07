@@ -35,6 +35,9 @@ public class SearchEngine extends BasePage {
         String script = "document.getElementById('s').value=" + "'" + phrase+ "'";
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
         javascriptExecutor.executeScript(script);
+    }
+
+    public void submit() {
 
         field.submit();
     }
