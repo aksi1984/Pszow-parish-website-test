@@ -31,35 +31,19 @@ public class SideMenuTest extends BaseTest {
     }
 
     @Test(priority = 1)
-    public void newArchbishopLink() {
+    public void archbishopInvitationLink() {
 
         ExtentReportsManager.setTestName("NOWY ARCYBISKUP link");
 
-        check(SideMenuURLs.NEW_ARCHBISHOP);
+        check(SideMenuURLs.ARCHBISHOP_INVITATION);
     }
 
     @Test(priority = 2)
-    public void parishStatisticsLink() {
+    public void jubileeIndulgenceLink() {
 
         ExtentReportsManager.setTestName("\"STATYSTYKA PARAFIALNA 2022\" link");
 
-        check(SideMenuURLs.PARISH_STATISTICS);
-    }
-
-    @Test(priority = 3)
-    public void retransmissionLink() {
-
-        ExtentReportsManager.setTestName("\"RETRANSMISJA RÓŻAŃCA Z PSZOWA - TVP KATOWICE, 01-10-22 R.\" link");
-
-        check(SideMenuURLs.RETRANSMISSION);
-    }
-
-    @Test(priority = 4)
-    public void forgivenessReportLink() {
-
-        ExtentReportsManager.setTestName("\"RELACJE Z ODPUSTU KU CZCI NARODZENIA NMP - 11 WRZEŚNIA 2022\" link");
-
-        check(SideMenuURLs.FORGIVENESS_REPORT);
+        check(SideMenuURLs.JUBILEE_INDULGENCE);
     }
 
     @Test(priority = 5)
