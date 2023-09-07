@@ -36,8 +36,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 1)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Ogłoszenia duszpasterskie' site with 'Ogłoszenia duszpasterskie' link")
-    @Story("Correct opening of page 'Ogłoszenia duszpasterskie'")
+    @Description("Test description: checking if the announcements page opens after clicking on the 'Ogłoszenia' link.")
+    @Story("Clicking the 'Ogłoszenia duszpasterskie' link")
     public void pastoralAnnouncements() {
 
         ExtentReportsManager.setTestName("\"OGŁOSZENIA DUSZPASTERSKIE\" link");
@@ -47,8 +47,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 2)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Intencje mszalne' site with 'Intencje mszalne' link")
-    @Story("Correct opening of page 'Intencje mszalne'")
+    @Description("Test description: checking if the mass intentions page opens after clicking on the 'Intencje mszalne' link.")
+    @Story("Clicking the 'Intencje mszalne' link")
     public void massIntentions() {
 
         ExtentReportsManager.setTestName("\"INTENCJE MSZALNE\" link");
@@ -58,8 +58,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 3)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Pogrzeby' site with 'Pogrzeby' link")
-    @Story("Correct opening of page 'Pogrzeby'")
+    @Description("Test description: checking if the funerals page opens after clicking on the 'Pogrzeby' link.")
+    @Story("Clicking the 'Pogrzeby' link")
     public void funerals() {
 
         ExtentReportsManager.setTestName("\"POGRZEBY\" link");
@@ -69,8 +69,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 4)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Szafarze' site with 'Szafarze' link")
-    @Story("Correct opening of page 'Szafarze'")
+    @Description("Test description: checking if the stevards page opens after clicking on the 'Szafarze' link.")
+    @Story("Clicking the 'Szafarze' link")
     public void stewards() {
 
         ExtentReportsManager.setTestName("\"SZAFARZE\" link");
@@ -80,8 +80,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 5)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Duszpasterze' site with 'Duszpasterze' link")
-    @Story("Correct opening of page 'Duszpasterze'")
+    @Description("Test description: checking if the priests page opens after clicking on the 'Duszpasterze' link.")
+    @Story("Clicking the 'Duszpasterze' link")
     public void priests() {
 
         ExtentReportsManager.setTestName("\"DUSZPASTERZE\" link");
@@ -91,8 +91,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 6)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Kancelaria' site with 'Kancelaria' link")
-    @Story("Correct opening of page 'Kancelaria'")
+    @Description("Test description: checking if the office page opens after clicking on the 'Kancelaria' link.")
+    @Story("Clicking the 'Kancelaria' link")
     public void office() {
 
         ExtentReportsManager.setTestName("\"KANCELARIA\" link");
@@ -102,8 +102,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 7)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Kontakt' site with 'Kontakt' link")
-    @Story("Correct opening of page 'Kontakt'")
+    @Description("Test description: checking if the contact page opens after clicking on the 'Kontakt' link.")
+    @Story("Clicking the 'Kontakt' link")
     public void contact() {
 
         ExtentReportsManager.setTestName("\"KONTAKT\" link");
@@ -113,8 +113,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 8)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Wsparcie parafii' site with 'Wsparcie parafii' link")
-    @Story("Correct opening of page 'Wsparcie parafii'")
+    @Description("Test description: checking if the parish support page opens after clicking on the 'Wsparcie parafii' link.")
+    @Story("Clicking the 'Wsparcie parafii' link")
     public void parishSupport() {
 
         ExtentReportsManager.setTestName("\"WSPARCIE PARAFII\" link");
@@ -124,8 +124,8 @@ public class MainMenuTest extends BaseTest {
 
     @Test(priority = 9)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: opening 'Spowiedź w bazylice' site with 'Spowiedź w bazylice' link")
-    @Story("Correct opening of page 'Spowiedź w bazylice'")
+    @Description("Test description: checking if the confession page opens after clicking on the 'Spowiedź w bazylice' link.")
+    @Story("Clicking the 'Spowiedź w bazylice' link")
     public void confession() {
 
         ExtentReportsManager.setTestName("\"SPOWIEDŻ W BAZYLICE\" link");
