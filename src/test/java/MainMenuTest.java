@@ -1,13 +1,10 @@
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import qa.base.BaseTest;
 import qa.components.MainMenu;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import qa.enums.MainMenuURLs;
 import qa.stepclasses.MainMenuSteps;
-import qa.utils.ExtentReportsManager;
-import qa.utils.Function;
-import qa.utils.JSONReader;
 import io.qameta.allure.*;
 
 @Epic("Smoke tests")
@@ -15,121 +12,128 @@ import io.qameta.allure.*;
 public class MainMenuTest extends BaseTest {
 
     private static MainMenuSteps mainMenuSteps;
-    private String[] expectedResults;
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         MainMenu mainMenu = new MainMenu(getDriver());
         mainMenuSteps = new MainMenuSteps(mainMenu);
-
-        JSONReader.read("./src/main/resources/data.json");
-        expectedResults = JSONReader.get("URLs", "mainMenu");
-    }
-
-    private void check(Function function, MainMenuURLs index) {
-
-        function.accept();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[index.ordinal()]);
     }
 
     @Test(priority = 1)
+    @Parameters({"pastoralURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the announcements page opens after clicking on the 'Ogłoszenia' link.")
     @Story("Clicking the 'Ogłoszenia duszpasterskie' link")
-    public void pastoralAnnouncements() {
+    public void pastoralAnnouncements(String url) {
 
-        ExtentReportsManager.setTestName("\"OGŁOSZENIA DUSZPASTERSKIE\" link");
+        //ExtentReportsManager.setTestName("\"OGŁOSZENIA DUSZPASTERSKIE\" link");
 
-        check(()->mainMenuSteps.clickThePastoraAnnouncementsLink(), MainMenuURLs.PASTORAL_ANNOUNCEMENTS);
+        mainMenuSteps.clickThePastoraAnnouncementsLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 2)
+    @Parameters({"intentionsURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the mass intentions page opens after clicking on the 'Intencje mszalne' link.")
     @Story("Clicking the 'Intencje mszalne' link")
-    public void massIntentions() {
+    public void massIntentions(String url) {
 
-        ExtentReportsManager.setTestName("\"INTENCJE MSZALNE\" link");
+        //ExtentReportsManager.setTestName("\"INTENCJE MSZALNE\" link");
 
-        check(()->mainMenuSteps.clickTheMassIntentionsLink(), MainMenuURLs.MASS_INTENTIONS);
+        mainMenuSteps.clickTheMassIntentionsLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 3)
+    @Parameters({"funeralsURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the funerals page opens after clicking on the 'Pogrzeby' link.")
     @Story("Clicking the 'Pogrzeby' link")
-    public void funerals() {
+    public void funerals(String url) {
 
-        ExtentReportsManager.setTestName("\"POGRZEBY\" link");
+        //ExtentReportsManager.setTestName("\"POGRZEBY\" link");
 
-        check(()->mainMenuSteps.clickTheFuneralsLink(), MainMenuURLs.FUNERALS);
+        mainMenuSteps.clickTheFuneralsLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 4)
+    @Parameters({"stewardsURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the stevards page opens after clicking on the 'Szafarze' link.")
     @Story("Clicking the 'Szafarze' link")
-    public void stewards() {
+    public void stewards(String url) {
 
-        ExtentReportsManager.setTestName("\"SZAFARZE\" link");
+        //ExtentReportsManager.setTestName("\"SZAFARZE\" link");
 
-        check(()->mainMenuSteps.clickTheStewardsLink(), MainMenuURLs.STEWARDS);
+        mainMenuSteps.clickTheStewardsLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 5)
+    @Parameters({"priestsURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'Duszpasterze' link.")
     @Story("Clicking the 'Duszpasterze' link")
-    public void priests() {
+    public void priests(String url) {
 
-        ExtentReportsManager.setTestName("\"DUSZPASTERZE\" link");
+        //ExtentReportsManager.setTestName("\"DUSZPASTERZE\" link");
 
-        check(()->mainMenuSteps.clickThePriestsLink(), MainMenuURLs.PRIESTS);
+        mainMenuSteps.clickThePriestsLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 6)
+    @Parameters({"officeURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the office page opens after clicking on the 'Kancelaria' link.")
     @Story("Clicking the 'Kancelaria' link")
-    public void office() {
+    public void office(String url) {
 
-        ExtentReportsManager.setTestName("\"KANCELARIA\" link");
+        //ExtentReportsManager.setTestName("\"KANCELARIA\" link");
 
-        check(()->mainMenuSteps.clickTheOfficeLink(), MainMenuURLs.OFFICE);
+        mainMenuSteps.clickTheOfficeLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 7)
+    @Parameters({"contactURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the contact page opens after clicking on the 'Kontakt' link.")
     @Story("Clicking the 'Kontakt' link")
-    public void contact() {
+    public void contact(String url) {
 
-        ExtentReportsManager.setTestName("\"KONTAKT\" link");
+        //ExtentReportsManager.setTestName("\"KONTAKT\" link");
 
-        check(()->mainMenuSteps.clickTheContactLink(), MainMenuURLs.CONTACT);
+        mainMenuSteps.clickTheContactLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 8)
+    @Parameters({"supportURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the parish support page opens after clicking on the 'Wsparcie parafii' link.")
     @Story("Clicking the 'Wsparcie parafii' link")
-    public void parishSupport() {
+    public void parishSupport(String url) {
 
-        ExtentReportsManager.setTestName("\"WSPARCIE PARAFII\" link");
+        //ExtentReportsManager.setTestName("\"WSPARCIE PARAFII\" link");
 
-        check(()->mainMenuSteps.clickTheParishSupportLink(), MainMenuURLs.PARISH_SUPPORT);
+        mainMenuSteps.clickTheParishSupportLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
     @Test(priority = 9)
+    @Parameters({"confessionURL"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the confession page opens after clicking on the 'Spowiedź w bazylice' link.")
     @Story("Clicking the 'Spowiedź w bazylice' link")
-    public void confession() {
+    public void confession(String url) {
 
-        ExtentReportsManager.setTestName("\"SPOWIEDŻ W BAZYLICE\" link");
+        //ExtentReportsManager.setTestName("\"SPOWIEDŻ W BAZYLICE\" link");
 
-        check(()->mainMenuSteps.clickTheConfessionLink(), MainMenuURLs.CONFESSION);
+        mainMenuSteps.clickTheConfessionLink();
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 }
