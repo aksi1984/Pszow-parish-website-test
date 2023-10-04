@@ -1,8 +1,9 @@
 package qa.base;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import qa.driver.Driver;
 import qa.enums.Browser;
 import qa.utils.JSONReader;
@@ -16,16 +17,18 @@ public class BaseTest {
     private static WebDriver driver;
 
     @BeforeClass
-    public void startDriver() {
+    public void readJSONFile() {
 
-        System.out.println("Starting driver");
+        JSONReader.read("./src/main/resources/data.json");
+    }
+
+    @BeforeMethod
+    public void startDriver() {
 
         driver = Driver.createDriver(Browser.CHROME);
         driver.navigate().to("https://bazylika-pszow.pl");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-
-        JSONReader.read("./src/main/resources/data.json");
     }
 
     public ArrayList<String> getTabs() {
@@ -43,10 +46,9 @@ public class BaseTest {
         return driver;
     }
 
-    @AfterClass
-    protected void quitDriver() {
+    @AfterMethod
+    public void quitDriver() {
 
-        System.out.println("Quit driver");
         driver.quit();
     }
 }
