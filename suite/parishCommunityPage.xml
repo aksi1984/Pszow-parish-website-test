@@ -2,11 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Search engine test suite">
-    <listeners>
+    <!--<listeners>
         <listener class-name="qa.listeners.Listener"/>
-    </listeners>
+    </listeners>-->
+    
+    <parameter name="priestsPageURL" value="https://bazylika-pszow.pl/?page_id=879"/>
+    <parameter name="pastoralCouncilPageURL" value="https://bazylika-pszow.pl/?page_id=1302"/>
+    <parameter name="stewardsPageURL" value="https://bazylika-pszow.pl/?page_id=861"/>
+    <parameter name="altarBoysPageURL" value="https://bazylika-pszow.pl/?page_id=952"/>
+    <parameter name="childrenOfMaryPageURL" value="https://bazylika-pszow.pl/?page_id=958"/>
+    <parameter name="youthOasisPageURL" value="https://bazylika-pszow.pl/?page_id=965"/>
+    <parameter name="homeChurchPageURL" value="https://bazylika-pszow.pl/?page_id=1449"/>
+    <parameter name="adultCatechesisPageURL" value="https://bazylika-pszow.pl/?page_id=924"/>
+    <parameter name="legionOfMaryPageURL" value="https://bazylika-pszow.pl/?page_id=925"/>
+    <parameter name="miraculousySavedPageURL" value="https://bazylika-pszow.pl/?page_id=12068"/>
+    <parameter name="livingRosaryPageURL" value="https://bazylika-pszow.pl/?page_id=972"/>
+    <parameter name="lectioDivinaPageURL" value="https://bazylika-pszow.pl/?page_id=969"/>
+    <parameter name="secularOrderPageURL" value="https://bazylika-pszow.pl/?page_id=970"/>
+    <parameter name="eveningWithJesusPageURL" value="https://bazylika-pszow.pl/?page_id=8079"/>
 
-    <test verbose="2" preserve-order="true" name="C:/Projekty/Testowanie/Pszow-parish-website">
+    <test verbose="2" name="C:/Projekty/Testowanie/Pszow-parish-website">
         <classes>
             <class name="ParishCommunityPageTest"/>
         </classes>
