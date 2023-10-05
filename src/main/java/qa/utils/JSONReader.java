@@ -1,46 +1,22 @@
 package qa.utils;
 
+import com.google.common.io.Resources;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
 
 public class JSONReader {
 
     private static JSONObject jsonObject;
 
-    private static String fileToString(String filepath) {
+    public static void read() throws IOException {
 
-        try {
+        URL url = Resources.getResource("data.json");
 
-            InputStream inputStream = Files.newInputStream(Paths.get(filepath));
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String line = bufferedReader.readLine();
-            StringBuilder stringBuilder = new StringBuilder();
-
-            while (line != null) {
-
-                stringBuilder.append(line).append("\n");
-                line = bufferedReader.readLine();
-            }
-
-            return stringBuilder.toString();
-
-        } catch (IOException e) {
-
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void read(String filepath) {
-
-        jsonObject = new JSONObject(fileToString(filepath));
+        jsonObject = new JSONObject(Resources.toString(url, StandardCharsets.UTF_8));
     }
 
     public static String[] get(String key, String node) {
