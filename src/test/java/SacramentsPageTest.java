@@ -1,15 +1,12 @@
 import io.qameta.allure.*;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.SideMenu;
-import qa.enums.SacramentsPageURLs;
 import qa.pages.Sacraments;
-import qa.enums.SideMenuURLs;
 import qa.stepclasses.SacramentsPageSteps;
-import qa.utils.JSONReader;
-
 import java.util.function.Consumer;
 
 @Epic("Smoke tests")
@@ -17,80 +14,80 @@ import java.util.function.Consumer;
 public class SacramentsPageTest extends BaseTest {
 
     private SacramentsPageSteps sacramentsPageSteps;
-    private String[] expectedResults;
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         sacramentsPageSteps = new SacramentsPageSteps(new Sacraments(getDriver()));
         SideMenu sideMenu = new SideMenu(getDriver());
 
-        sideMenu.click(SideMenuURLs.SACRAMENTS.ordinal());
-
-        expectedResults = JSONReader.get("URLs", "sacraments");
+        sideMenu.click("SAKRAMENTY – INFORMACJE");
     }
 
-    private void check(Consumer<SacramentsPageSteps> consumer, SacramentsPageURLs index) {
+    private void check(Consumer<SacramentsPageSteps> consumer, String expectedURL) {
 
         consumer.accept(sacramentsPageSteps);
 
-        String currentURL = getDriver().getCurrentUrl();
-
-        back();
-        Assert.assertEquals(currentURL, expectedResults[index.ordinal()]);
+        Assert.assertEquals(getDriver().getCurrentUrl(), expectedURL);
     }
 
     @Test
+    @Parameters({"baptismPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of baptism page opens after clicking on the 'Sakrament chrztu' link.")
     @Story("Clicking the 'Sakrament chrztu' link")
-    public void sacramentOfBaptismLink() {
+    public void sacramentOfBaptismLink(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfBaptismLink, SacramentsPageURLs.SACRAMENT_OF_BAPTISM);
+        check(SacramentsPageSteps::clickTheSacramentOfBaptismLink, url);
     }
 
     @Test
+    @Parameters({"eucharistPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the eucharist page opens after clicking on the 'Eucharystia' link.")
     @Story("Clicking the 'Eucharystia' link")
-    public void eucharist() {
+    public void eucharist(String url) {
 
-        check(SacramentsPageSteps::clickTheEucharistLink, SacramentsPageURLs.EUCHARIST);
+        check(SacramentsPageSteps::clickTheEucharistLink, url);
     }
 
     @Test
+    @Parameters({"penancePageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of penance page opens after clicking on the 'Sakrament pokuty' link.")
     @Story("Clicking the 'Sakrament pokuty' link")
-    public void sacramentOfPenanceLink() {
+    public void sacramentOfPenanceLink(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfPenanceLink, SacramentsPageURLs.SACRAMENT_OF_PENANCE);
+        check(SacramentsPageSteps::clickTheSacramentOfPenanceLink, url);
     }
 
     @Test
+    @Parameters({"confirmationPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of confirmation page opens after clicking on the 'Sakrament bierzmowania' link.")
     @Story("Clicking the 'Sakrament bierzmowania' link")
-    public void confirmation() {
+    public void confirmation(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfConfirmationLink, SacramentsPageURLs.CONFIRMATION);
+        check(SacramentsPageSteps::clickTheSacramentOfConfirmationLink, url);
     }
 
     @Test
+    @Parameters({"marriagePageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of marriage page opens after clicking on the 'Sakrament małżestwa' link.")
     @Story("Clicking the 'Sakrament małżeństwa' link")
-    public void sacramentOfMarriage() {
+    public void sacramentOfMarriage(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfMarriageLink, SacramentsPageURLs.SACRAMENT_OF_MARRIAGE);
+        check(SacramentsPageSteps::clickTheSacramentOfMarriageLink, url);
     }
 
     @Test
+    @Parameters({"sickPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of the sick page opens after clicking on the 'Sakrament chorych' link.")
     @Story("Clicking the 'Sakrament chorych' link")
-    public void sacramentOfTheSick() {
+    public void sacramentOfTheSick(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfTheSickLink, SacramentsPageURLs.SACRAMENT_OF_THE_SICK);
+        check(SacramentsPageSteps::clickTheSacramentOfTheSickLink, url);
     }
 }
