@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sacraments page links test suite">
+    <!--<listeners>
+        <listener class-name="qa.listeners.Listener"/>
+    </listeners>-->
+
+    <parameter name="baptismPageURL" value="https://bazylika-pszow.pl/?page_id=930"/>
+    <parameter name="eucharistPageURL" value="https://bazylika-pszow.pl/?page_id=949"/>
+    <parameter name="penancePageURL" value="https://bazylika-pszow.pl/?page_id=935"/>
+    <parameter name="confirmationPageURL" value="https://bazylika-pszow.pl/?page_id=933"/>
+    <parameter name="marriagePageURL" value="https://bazylika-pszow.pl/?page_id=936"/>
+    <parameter name="sickPageURL" value="https://bazylika-pszow.pl/?page_id=937"/>
+
+    <test verbose="2"  name="C:/Projekty/Testowanie/Pszow-parish-website">
+        <classes>
+            <class name="SacramentsPageTest"/>
+        </classes>
+    </test>
+</suite>
