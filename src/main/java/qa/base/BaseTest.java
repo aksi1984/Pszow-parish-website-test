@@ -8,6 +8,7 @@ import qa.driver.Driver;
 import qa.enums.Browser;
 import qa.utils.JSONReader;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -17,9 +18,9 @@ public class BaseTest {
     private static WebDriver driver;
 
     @BeforeClass
-    public void readJSONFile() {
+    public void readJSONFile() throws IOException {
 
-        JSONReader.read("./src/main/resources/data.json");
+        JSONReader.read();
     }
 
     @BeforeMethod
@@ -34,11 +35,6 @@ public class BaseTest {
     public ArrayList<String> getTabs() {
 
         return new ArrayList<>(driver.getWindowHandles());
-    }
-
-    public void back() {
-
-        driver.navigate().back();
     }
 
     public static WebDriver getDriver() {
