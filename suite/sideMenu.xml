@@ -2,11 +2,25 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Side menu test suite">
-    <listeners>
+    <!--<listeners>
         <listener class-name="qa.listeners.Listener"></listener>
-    </listeners>
+    </listeners>-->
 
-    <test verbose="2" preserve-order="true" name="C:/Projekty/Testowanie/Pszow-parish-website">
+    <parameter name="litanyPageURL" value="https://bazylika-pszow.pl/?page_id=13887"/>
+    <parameter name="historyPageURL" value="https://bazylika-pszow.pl/?page_id=903"/>
+    <parameter name="yesterdayAndNowPageURL" value="https://bazylika-pszow.pl/?page_id=901"/>
+    <parameter name="basilicaInsidePageURL" value="https://bazylika-pszow.pl/?page_id=864"/>
+    <parameter name="communityPageURL" value="https://bazylika-pszow.pl/?page_id=8138"/>
+    <parameter name="sacramentsPageURL" value="https://bazylika-pszow.pl/?page_id=17472"/>
+    <parameter name="calvaryPageURL" value="https://bazylika-pszow.pl/?page_id=863"/>
+    <parameter name="photosPageURL" value="https://bazylika-pszow.pl/?page_id=7360"/>
+    <parameter name="moviesPageURL" value="https://bazylika-pszow.pl/?page_id=862"/>
+    <parameter name="eveningPageURL" value="https://bazylika-pszow.pl/?page_id=8079"/>
+    <parameter name="cemeteryPageURL" value="https://bazylika-pszow.pl/?page_id=1862"/>
+    <parameter name="delegatePageURL" value="https://bazylika-pszow.pl/?page_id=16781"/>
+    <parameter name="charitablePageURL" value="https://bazylika-pszow.pl/?page_id=927"/>
+
+    <test verbose="2" name="C:/Projekty/Testowanie/Pszow-parish-website">
         <classes>
             <class name="SideMenuTest"/>
         </classes>
