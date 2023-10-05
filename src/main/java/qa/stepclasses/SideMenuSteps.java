@@ -2,7 +2,6 @@ package qa.stepclasses;
 
 import io.qameta.allure.Step;
 import qa.components.SideMenu;
-import qa.enums.SideMenuURLs;
 
 public class SideMenuSteps {
 
@@ -13,99 +12,81 @@ public class SideMenuSteps {
         this.sideMenu = sideMenu;
     }
 
-    @Step("Click the 'ZAPROSZENIE KS. ABPA ADRIANA GALBASA NA PIELGRZYMKĘ DO PSZOWA' link")
-    public void clickTheArchbishopInvitationLink() {
-
-        sideMenu.click(SideMenuURLs.ARCHBISHOP_INVITATION.ordinal());
-    }
-
-    @Step("Click the 'JUBILEUSZOWY ODPUST – 10 WRZEŚNIA 2023' link")
-    public void clickTheJubileeIndulgenceLink() {
-
-        sideMenu.click(SideMenuURLs.JUBILEE_INDULGENCE.ordinal());
-    }
-
-    @Step("Click the 'ODPUST ZUPEŁNY W CZASIE JUBILEUSZU W PSZOWIE' link")
-    public void clickThePlenaryIndulgenceLink() {
-
-        sideMenu.click(SideMenuURLs.PLENARY_INDULGENCE.ordinal());
-    }
-
     @Step("Click the 'LITANIA DO PANI UŚMIECHNIĘTEJ' link")
     public void clickTheLitanyLink() {
 
-        sideMenu.click(SideMenuURLs.LITANY.ordinal());
+        sideMenu.click("LITANIA DO PANI UŚMIECHNIĘTEJ");
     }
 
     @Step("Click the 'HISTORIA PARAFII' link")
     public void clickTheParishHistoryLink() {
 
-        sideMenu.click(SideMenuURLs.PARISH_HISTORY.ordinal());
+        sideMenu.click("HISTORIA PARAFII");
     }
 
     @Step("Click the 'PARAFIA WCZORAJ I DZIŚ' link")
     public void clickTheParishYesterdayAndNowLink() {
 
-        sideMenu.click(SideMenuURLs.YESTERDAY_AND_NOW.ordinal());
+        sideMenu.click("PARAFIA WCZORAJ I DZIŚ");
     }
 
     @Step("Click the 'WNĘTRZE BAZYLIKI – PANORAMA' link")
     public void clickTheBasilicaInsideLink() {
 
-        sideMenu.click(SideMenuURLs.BASILICA_INSIDE.ordinal());
+        sideMenu.click("WNĘTRZE BAZYLIKI – PANORAMA");
     }
 
     @Step("Click the 'WSPÓLNOTY PARAFIALNE' link")
     public void clickTheParishCommunityLink() {
 
-        sideMenu.click(SideMenuURLs.PARISH_COMMUNITY.ordinal());
+        sideMenu.click("WSPÓLNOTY PARAFIALNE");
     }
 
     @Step("Click the 'SAKRAMENTY – INFORMACJE' link")
     public void clickTheSacramentsLink() {
 
-        sideMenu.click(SideMenuURLs.SACRAMENTS.ordinal());
+        sideMenu.click("SAKRAMENTY – INFORMACJE");
     }
 
     @Step("Click the 'KALWARIA PSZOWSKA' link")
     public void clickTheCalvaryLink() {
 
-        sideMenu.click(SideMenuURLs.CALVARY.ordinal());
+        sideMenu.click("KALWARIA PSZOWSKA");
     }
 
     @Step("Click the 'GALERIA ZDJĘĆ' link")
     public void clickThePhotoGalleryLink() {
 
-        sideMenu.click(SideMenuURLs.PHOTO_GALLERY.ordinal());
+        sideMenu.click("GALERIA ZDJĘĆ");
     }
 
     @Step("Click the 'GALERIA FILMÓW' link")
     public void clickTheFilmsLink() {
 
-        sideMenu.click(SideMenuURLs.FILMS.ordinal());
+        sideMenu.click("GALERIA FILMÓW");
     }
 
     @Step("Click the 'WIECZÓR Z JEZUSEM' link")
     public void clickTheEveningWithJesusLink() {
 
-        sideMenu.click(SideMenuURLs.EVENING_WITH_JESUS.ordinal());
+        sideMenu.click("WIECZÓR Z JEZUSEM");
     }
 
     @Step("Click the 'REGULAMIN CMENTARZA' link")
     public void clickTheCemeteryRegulationsLink() {
 
-        sideMenu.click(SideMenuURLs.CEMENTERY_REGULATIONS.ordinal());
+        sideMenu.click("REGULAMIN CMENTARZA");
     }
 
     @Step("Click the 'DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY' link")
     public void clickTheDelegateLink() {
 
-        sideMenu.click(SideMenuURLs.DELEGATE.ordinal());
+        sideMenu.click("DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY");
     }
 
     @Step("Click the 'DZIAŁALNOŚĆ CHARYTATYWNA PARAFII' link")
     public void clickTheParishCharitableActivitiesLink() {
 
-        sideMenu.click(SideMenuURLs.PARISH_CHARITABLE_ACTIVITIES.ordinal());
+        sideMenu.click("DZIAŁALNOŚĆ CHARYTATYWNA PARAFII");
     }
 }
