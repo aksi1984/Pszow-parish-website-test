@@ -1,215 +1,184 @@
 import io.qameta.allure.*;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.stepclasses.SideMenuSteps;
-import qa.utils.ExtentReportsManager;
-import qa.enums.SideMenuURLs;
-import qa.utils.JSONReader;
-
 import java.util.function.Consumer;
 
 @Epic("Smoke tests")
-@Feature("Side menu tests")
+@Feature("Side menu links tests")
 public class SideMenuTest extends BaseTest {
 
     private SideMenuSteps sideMenuSteps;
-    private String[] expectedResults;
-
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         sideMenuSteps = new SideMenuSteps(new SideMenu(getDriver()));
-
-        expectedResults = JSONReader.get("URLs", "sideMenu");
     }
 
-    private void check(Consumer<SideMenuSteps> consumer, SideMenuURLs index) {
+    private void check(Consumer<SideMenuSteps> consumer, String expectedURL) {
 
         consumer.accept(sideMenuSteps);
 
-        String currentURL = getDriver().getCurrentUrl();
-
-        back();
-        Assert.assertEquals(currentURL, expectedResults[index.ordinal()]);
-    }
-
-    @Test(priority = 1)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the archbishop invitation page opens after clicking on the 'ZAPROSZENIE KS. ABPA ADRIANA GALBASA NA PIELGRZYMKĘ DO PSZOWA' link.")
-    @Story("Clicking the 'ZAPROSZENIE KS. ABPA ADRIANA GALBASA NA PIELGRZYMKĘ DO PSZOWA' link")
-    public void archbishopInvitationLink() {
-
-        ExtentReportsManager.setTestName("ZAPROSZENIE KS. ABPA ADRIANA GALBASA NA PIELGRZYMKĘ DO PSZOWA link");
-
-        check(SideMenuSteps::clickTheArchbishopInvitationLink, SideMenuURLs.ARCHBISHOP_INVITATION);
-    }
-
-    @Test(priority = 2)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the jubilee indulgence page opens after clicking on the 'JUBILEUSZOWY ODPUST – 10 WRZEŚNIA 2023' link.")
-    @Story("Clicking the 'JUBILEUSZOWY ODPUST – 10 WRZEŚNIA 2023' link")
-    public void jubileeIndulgenceLink() {
-
-        ExtentReportsManager.setTestName("\"JUBILEUSZOWY ODPUST – 10 WRZEŚNIA 2023\" link");
-
-        check(SideMenuSteps::clickTheJubileeIndulgenceLink, SideMenuURLs.JUBILEE_INDULGENCE);
-    }
-
-    @Test(priority = 5)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the plenary indulgence page opens after clicking on the 'ODPUST ZUPEŁNY W CZASIE JUBILEUSZU W PSZOWIE' link.")
-    @Story("Clicking the 'ODPUST ZUPEŁNY W CZASIE JUBILEUSZU W PSZOWIE' link")
-    public void plenaryIndulgenceLink() {
-
-        ExtentReportsManager.setTestName("\"ODPUST ZUPEŁNY W CZASIE JUBILEUSZU W PSZOWIE\" link");
-
-        check(SideMenuSteps::clickThePlenaryIndulgenceLink, SideMenuURLs.PLENARY_INDULGENCE);
+        Assert.assertEquals(getDriver().getCurrentUrl(), expectedURL);
     }
 
     @Test(priority = 6)
+    @Parameters({"litanyPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the litany page opens after clicking on the 'LITANIA DO PANI UŚMIECHNIĘTEJ' link.")
     @Story("Clicking the 'LITANIA DO PANI UŚMIECHNIĘTEJ' link")
-    public void litanyLink() {
+    public void litanyLink(String url) {
 
-        ExtentReportsManager.setTestName("\"LITANIA DO PANI UŚMIECHNIĘTEJ\" link");
+        //ExtentReportsManager.setTestName("\"LITANIA DO PANI UŚMIECHNIĘTEJ\" link");
 
-        check(SideMenuSteps::clickTheLitanyLink, SideMenuURLs.LITANY);
+        check(SideMenuSteps::clickTheLitanyLink, url);
     }
 
     @Test(priority = 7)
+    @Parameters({"historyPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the parish history page opens after clicking on the 'HISTORIA PARAFII' link.")
     @Story("Clicking the 'HISTORIA PARAFII' link")
-    public void parishHistoryLink() {
+    public void parishHistoryLink(String url) {
 
-        ExtentReportsManager.setTestName("\"HISTORIA PARAFII\" link");
+       // ExtentReportsManager.setTestName("\"HISTORIA PARAFII\" link");
 
-        check(SideMenuSteps::clickTheParishHistoryLink, SideMenuURLs.PARISH_HISTORY);
+        check(SideMenuSteps::clickTheParishHistoryLink, url);
     }
 
     @Test(priority = 8)
+    @Parameters({"yesterdayAndNowPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the parish yesterday and now page opens after clicking on the 'PARAFIA WCZORAJ I DZIŚ' link.")
     @Story("Clicking the 'PARAFIA WCZORAJ I DZIŚ' link")
-    public void yesterdayAndNowLink() {
+    public void yesterdayAndNowLink(String url) {
 
-        ExtentReportsManager.setTestName("\"PARAFIA WCZORAJ I DZIŚ\" link");
+        //ExtentReportsManager.setTestName("\"PARAFIA WCZORAJ I DZIŚ\" link");
 
-        check(SideMenuSteps::clickTheParishYesterdayAndNowLink, SideMenuURLs.YESTERDAY_AND_NOW);
+        check(SideMenuSteps::clickTheParishYesterdayAndNowLink, url);
     }
 
     @Test(priority = 9)
+    @Parameters("basilicaInsidePageURL")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the basilica inside and now page opens after clicking on the 'WNĘTRZE BAZYLIKI' link.")
     @Story("Clicking the 'WNĘTRZE BAZYLIKI' link")
-    public void basilicaInsideLink() {
+    public void basilicaInsideLink(String url) {
 
-        ExtentReportsManager.setTestName("\"WNĘTRZE BAZYLIKI - PANORAMA\" link");
+        //ExtentReportsManager.setTestName("\"WNĘTRZE BAZYLIKI - PANORAMA\" link");
 
-        check(SideMenuSteps::clickTheBasilicaInsideLink, SideMenuURLs.BASILICA_INSIDE);
+        check(SideMenuSteps::clickTheBasilicaInsideLink, url);
     }
 
     @Test(priority = 10)
+    @Parameters({"communityPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the parish community page opens after clicking on the 'WSPÓLNOTY PARAFIALNE' link.")
     @Story("Clicking the 'WSPÓLNOTY PARAFIALNE' link")
-    public void parishCommunityLink() {
+    public void parishCommunityLink(String url) {
 
-        ExtentReportsManager.setTestName("\"WSPÓLNOTY PARAFIALNE\" link");
+        //ExtentReportsManager.setTestName("\"WSPÓLNOTY PARAFIALNE\" link");
 
-        check(SideMenuSteps::clickTheParishCommunityLink, SideMenuURLs.PARISH_COMMUNITY);
+        check(SideMenuSteps::clickTheParishCommunityLink, url);
     }
 
     @Test(priority = 11)
+    @Parameters({"sacramentsPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacraments page opens after clicking on the 'SAKRAMENTY - INFORMACJE' link.")
     @Story("Clicking the 'SAKRAMENTY - INFORMACJE' link")
-    public void sacramentsInfoLink() {
+    public void sacramentsInfoLink(String url) {
 
-        ExtentReportsManager.setTestName("\"SAKRAMENTY - INFORMACJE\" link");
+        //ExtentReportsManager.setTestName("\"SAKRAMENTY - INFORMACJE\" link");
 
-        check(SideMenuSteps::clickTheSacramentsLink, SideMenuURLs.SACRAMENTS);
+        check(SideMenuSteps::clickTheSacramentsLink, url);
     }
 
     @Test(priority = 12)
+    @Parameters({"calvaryPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the calvary page opens after clicking on the 'KALWARIA PSZOWSKA' link.")
     @Story("Clicking the 'KALWARIA PSZOWSKA' link")
-    public void calvaryLink() {
+    public void calvaryLink(String url) {
 
-        ExtentReportsManager.setTestName("\"KALWARIA PSZOWSKA\" link");
+        //ExtentReportsManager.setTestName("\"KALWARIA PSZOWSKA\" link");
 
-        check(SideMenuSteps::clickTheCalvaryLink, SideMenuURLs.CALVARY);
+        check(SideMenuSteps::clickTheCalvaryLink, url);
     }
 
     @Test(priority = 13)
+    @Parameters({"photosPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the photo gallery page opens after clicking on the 'GALERIA ZDJĘĆ' link.")
     @Story("Clicking the 'GALERIA ZDJĘĆ' link")
-    public void photoGalleryLink() {
+    public void photoGalleryLink(String url) {
 
-        ExtentReportsManager.setTestName("\"GALERIA ZDJĘĆ\" link");
+        //ExtentReportsManager.setTestName("\"GALERIA ZDJĘĆ\" link");
 
-        check(SideMenuSteps::clickThePhotoGalleryLink, SideMenuURLs.PHOTO_GALLERY);
+        check(SideMenuSteps::clickThePhotoGalleryLink, url);
     }
 
-    /*@Test(priority = 18)
-    public void filmsLink() throws InterruptedException {
+    @Test(priority = 18)
+    @Parameters({"moviesPageURL"})
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test description: checking if the photo gallery page opens after clicking on the 'GALERIA FILMÓW' link.")
+    @Story("Clicking the 'GALERIA FILMÓW' link")
+    public void filmsLink(String url) throws InterruptedException {
 
-        ExtentReportsManager.setTestName("\"GALERIA FILMÓW\" link");
+       // ExtentReportsManager.setTestName("\"GALERIA FILMÓW\" link");
 
-        sideMenu.clickFilmsLink();
-
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedResults[SideMenuURLs.FILMS]);
-
-        back();
-    }*/
+        check(SideMenuSteps::clickTheFilmsLink, url);
+    }
 
     @Test(priority = 14)
+    @Parameters({"eveningPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the evening with Jesus page opens after clicking on the 'WIECZÓR Z JEZUSEM' link.")
     @Story("Clicking the 'WIECZÓR Z JEZUSEM' link")
-    public void eveningWithJesusLink() {
+    public void eveningWithJesusLink(String url) {
 
-        ExtentReportsManager.setTestName("\"WIECZÓR Z JEZUSEM\" link");
+        //ExtentReportsManager.setTestName("\"WIECZÓR Z JEZUSEM\" link");
 
-        check(SideMenuSteps::clickTheEveningWithJesusLink, SideMenuURLs.EVENING_WITH_JESUS);
+        check(SideMenuSteps::clickTheEveningWithJesusLink, url);
     }
 
     @Test(priority = 15)
+    @Parameters("cemeteryPageURL")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the cemetery regulations page opens after clicking on the 'REGULAMIN CMENTARZA' link.")
     @Story("Clicking the 'REGULAMIN CMENTARZA' link")
-    public void cemeteryRegulationsLink() {
+    public void cemeteryRegulationsLink(String url) {
 
-        ExtentReportsManager.setTestName("\"REGULAMIN CMENTARZA\" link");
+        //ExtentReportsManager.setTestName("\"REGULAMIN CMENTARZA\" link");
 
-        check(SideMenuSteps::clickTheCemeteryRegulationsLink, SideMenuURLs.CEMENTERY_REGULATIONS);
+        check(SideMenuSteps::clickTheCemeteryRegulationsLink, url);
     }
 
     @Test(priority = 16)
+    @Parameters({"delegatePageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the delegate page opens after clicking on the 'DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY' link.")
     @Story("Clicking the 'DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY' link")
-    public void delegateLink() {
+    public void delegateLink(String url) {
 
-        ExtentReportsManager.setTestName("\"DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY\" link");
+        //ExtentReportsManager.setTestName("\"DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY\" link");
 
-        check(SideMenuSteps::clickTheDelegateLink, SideMenuURLs.DELEGATE);
+        check(SideMenuSteps::clickTheDelegateLink, url);
     }
 
     @Test(priority = 17)
+    @Parameters({"charitablePageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the parish charitable activities page opens after clicking on the 'DZIAŁALNOŚĆ CHARYTATYWNA PARAFII' link.")
     @Story("Clicking the 'DZIAŁALNOŚĆ CHARYTATYWNA PARAFII' link")
-    public void parishCharitableActivitiesLink() {
+    public void parishCharitableActivitiesLink(String url) {
 
-        ExtentReportsManager.setTestName("\"DZIAŁALNOŚĆ CHARYTATYWNA PARAFII\" link");
+        //ExtentReportsManager.setTestName("\"DZIAŁALNOŚĆ CHARYTATYWNA PARAFII\" link");
 
-        check(SideMenuSteps::clickTheParishCharitableActivitiesLink, SideMenuURLs.PARISH_CHARITABLE_ACTIVITIES);
+        check(SideMenuSteps::clickTheParishCharitableActivitiesLink, url);
     }
 }
