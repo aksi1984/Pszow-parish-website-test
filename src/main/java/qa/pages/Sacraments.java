@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import qa.base.BasePage;
 
-import java.util.List;
 
 public class Sacraments extends BasePage {
 
@@ -18,9 +17,9 @@ public class Sacraments extends BasePage {
     @FindBy(xpath = ".//div[@class='container pageContent clearfix']")
     WebElement container;
 
-    public void click(int index) {
+    public void click(String linkText) {
 
-        List<WebElement> elements = container.findElements(By.tagName("a"));
-        clickElement(elements.get(index));
+        WebElement element = container.findElement(By.linkText(linkText));
+        clickElement(element);
     }
 }

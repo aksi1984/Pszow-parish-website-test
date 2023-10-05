@@ -1,7 +1,6 @@
 package qa.stepclasses;
 
 import io.qameta.allure.Step;
-import qa.enums.SacramentsPageURLs;
 import qa.pages.Sacraments;
 
 public class SacramentsPageSteps {
@@ -16,36 +15,36 @@ public class SacramentsPageSteps {
     @Step("Click the 'Sakrament chrztu' link")
     public void clickTheSacramentOfBaptismLink() {
 
-        sacraments.click(SacramentsPageURLs.SACRAMENT_OF_BAPTISM.ordinal());
+        sacraments.click("Sakrament chrztu");
     }
 
     @Step("Click the 'Eucharystia' link")
     public void clickTheEucharistLink() {
 
-        sacraments.click(SacramentsPageURLs.EUCHARIST.ordinal());
+        sacraments.click("Eucharystia");
     }
 
     @Step("Click the 'Sakrament pokuty' link")
     public void clickTheSacramentOfPenanceLink() {
 
-        sacraments.click(SacramentsPageURLs.SACRAMENT_OF_PENANCE.ordinal());
+        sacraments.click("Sakrament pokuty");
     }
 
     @Step("Click the 'Sakrament bierzmowania' link")
     public void clickTheSacramentOfConfirmationLink() {
 
-        sacraments.click(SacramentsPageURLs.CONFIRMATION.ordinal());
+        sacraments.click("Sakrament bierzmowania");
     }
 
     @Step("Click the 'Sakrament małżeństwa' link")
     public void clickTheSacramentOfMarriageLink() {
 
-        sacraments.click(SacramentsPageURLs.SACRAMENT_OF_MARRIAGE.ordinal());
+        sacraments.click("Sakrament małżeństwa");
     }
 
     @Step("Click the 'Sakrament chorych' link")
     public void clickTheSacramentOfTheSickLink() {
 
-        sacraments.click(SacramentsPageURLs.SACRAMENT_OF_THE_SICK.ordinal());
+        sacraments.click("Sakrament chorych");
     }
 }
