@@ -1,9 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Basilica inside test suite">
-    <listeners>
+    <!--<listeners>
         <listener class-name="qa.listeners.Listener"/>
-    </listeners>
+    </listeners>-->
+
+    <parameter name="basilicaInsidePageURL" value="https://www.ai360.pl/panoramy/157,1103.html"/>
 
     <test verbose="2" preserve-order="true" name="C:/Projekty/Testowanie/Pszow-parish-website">
         <classes>
