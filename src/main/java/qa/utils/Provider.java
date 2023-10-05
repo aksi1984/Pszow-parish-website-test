@@ -6,16 +6,12 @@ public class Provider {
     @DataProvider(name = "correctPhrase")
     public Object[] correctPhrase() {
 
-        String[] data = JSONReader.get("searchEngine", "positive");
-
-        return new  Object[] {data};
+        return JSONReader.get("searchEngine", "positive");
     }
 
     @DataProvider(name = "incorrectPhrase")
     public Object[] incorrectPhrase() {
 
-        String[] data = JSONReader.get("searchEngine", "negative");
-
-        return new Object[] {data};
+        return  JSONReader.get("searchEngine", "negative");
     }
 }
