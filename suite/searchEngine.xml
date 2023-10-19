@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Search engine test suite">
+
     <listeners>
         <listener class-name="qa.listeners.Listener"/>
     </listeners>
