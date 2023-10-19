@@ -8,6 +8,8 @@ import qa.components.SideMenu;
 import qa.pages.BasilicaInside;
 import qa.stepclasses.BasilicaInsidePageSteps;
 import qa.utils.ExtentReportsManager;
+import qa.utils.Message;
+
 import java.util.ArrayList;
 
 @Epic("Smoke tests")
@@ -32,14 +34,14 @@ public class BasilicaInsidePageTest extends BaseTest {
     @Story("Clicking the 'Prezbiterium link'")
     public void presbyteryLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"PREZBITERIUM\" link");
+        ExtentReportsManager.setTestName("Clicking the \"PREZBITERIUM\" link");
 
         basilicaInsidePageSteps.clickThePresbyteryLink();
 
         ArrayList<String> tabs = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(tabs.get(tabs.size() - 1));
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
 
