@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Cookies test suite">
+
+    <listeners>
+        <listener class-name="qa.listeners.Listener"/>
+    </listeners>
+
+    <test verbose="2" name="C:/Projekty/Testowanie/Pszow-parish-website">
+        <classes>
+            <class name="CookieTest"/>
+        </classes>
+    </test>
+</suite>
