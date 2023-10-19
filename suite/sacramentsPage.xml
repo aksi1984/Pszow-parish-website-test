@@ -1,9 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Sacraments page links test suite">
-    <!--<listeners>
+
+    <listeners>
         <listener class-name="qa.listeners.Listener"/>
-    </listeners>-->
+    </listeners>
 
     <parameter name="baptismPageURL" value="https://bazylika-pszow.pl/?page_id=930"/>
     <parameter name="eucharistPageURL" value="https://bazylika-pszow.pl/?page_id=949"/>

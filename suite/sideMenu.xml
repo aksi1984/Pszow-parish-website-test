@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Side menu test suite">
-    <!--<listeners>
-        <listener class-name="qa.listeners.Listener"></listener>
-    </listeners>-->
+
+    <listeners>
+        <listener class-name="qa.listeners.Listener"/>
+    </listeners>
 
     <parameter name="litanyPageURL" value="https://bazylika-pszow.pl/?page_id=13887"/>
     <parameter name="historyPageURL" value="https://bazylika-pszow.pl/?page_id=903"/>

@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Main menu test suite">
-    <!--<listeners>
+
+    <listeners>
         <listener class-name="qa.listeners.Listener"/>
-    </listeners>-->
+    </listeners>
 
     <parameter name="pastoralURL" value="https://bazylika-pszow.pl/?page_id=882"/>
     <parameter name="intentionsURL" value="https://bazylika-pszow.pl/?page_id=859"/>

@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Search engine test suite">
-    <!--<listeners>
+
+    <listeners>
         <listener class-name="qa.listeners.Listener"/>
-    </listeners>-->
+    </listeners>
     
     <parameter name="priestsPageURL" value="https://bazylika-pszow.pl/?page_id=879"/>
     <parameter name="pastoralCouncilPageURL" value="https://bazylika-pszow.pl/?page_id=1302"/>
