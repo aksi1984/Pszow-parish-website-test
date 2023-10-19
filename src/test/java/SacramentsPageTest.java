@@ -7,6 +7,9 @@ import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.pages.Sacraments;
 import qa.stepclasses.SacramentsPageSteps;
+import qa.utils.ExtentReportsManager;
+import qa.utils.Message;
+
 import java.util.function.Consumer;
 
 @Epic("Smoke tests")
@@ -24,11 +27,11 @@ public class SacramentsPageTest extends BaseTest {
         sideMenu.click("SAKRAMENTY – INFORMACJE");
     }
 
-    private void check(Consumer<SacramentsPageSteps> consumer, String expectedURL) {
+    private void check(Consumer<SacramentsPageSteps> consumer, String expectedURL, String assertMessage) {
 
         consumer.accept(sacramentsPageSteps);
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedURL);
+        Assert.assertEquals(getDriver().getCurrentUrl(), expectedURL, assertMessage);
     }
 
     @Test
@@ -38,7 +41,9 @@ public class SacramentsPageTest extends BaseTest {
     @Story("Clicking the 'Sakrament chrztu' link")
     public void sacramentOfBaptismLink(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfBaptismLink, url);
+        ExtentReportsManager.setTestName("Clicking the \"Sakrament chrztu\" link");
+
+        check(SacramentsPageSteps::clickTheSacramentOfBaptismLink, url, Message.getMessage(url));
     }
 
     @Test
@@ -48,7 +53,9 @@ public class SacramentsPageTest extends BaseTest {
     @Story("Clicking the 'Eucharystia' link")
     public void eucharist(String url) {
 
-        check(SacramentsPageSteps::clickTheEucharistLink, url);
+        ExtentReportsManager.setTestName("Clicking the \"Eucharystia\" link");
+
+        check(SacramentsPageSteps::clickTheEucharistLink, url, Message.getMessage(url));
     }
 
     @Test
@@ -58,7 +65,9 @@ public class SacramentsPageTest extends BaseTest {
     @Story("Clicking the 'Sakrament pokuty' link")
     public void sacramentOfPenanceLink(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfPenanceLink, url);
+        ExtentReportsManager.setTestName("Clicking the \"Sakrament pokuty\" link");
+
+        check(SacramentsPageSteps::clickTheSacramentOfPenanceLink, url, Message.getMessage(url));
     }
 
     @Test
@@ -68,7 +77,9 @@ public class SacramentsPageTest extends BaseTest {
     @Story("Clicking the 'Sakrament bierzmowania' link")
     public void confirmation(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfConfirmationLink, url);
+        ExtentReportsManager.setTestName("Clicking the \"Sakrament bierzmowania\" link");
+
+        check(SacramentsPageSteps::clickTheSacramentOfConfirmationLink, url, Message.getMessage(url));
     }
 
     @Test
@@ -78,7 +89,9 @@ public class SacramentsPageTest extends BaseTest {
     @Story("Clicking the 'Sakrament małżeństwa' link")
     public void sacramentOfMarriage(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfMarriageLink, url);
+        ExtentReportsManager.setTestName("Clicking the \"Sakrament małżeństwa\" link");
+
+        check(SacramentsPageSteps::clickTheSacramentOfMarriageLink, url, Message.getMessage(url));
     }
 
     @Test
@@ -88,6 +101,8 @@ public class SacramentsPageTest extends BaseTest {
     @Story("Clicking the 'Sakrament chorych' link")
     public void sacramentOfTheSick(String url) {
 
-        check(SacramentsPageSteps::clickTheSacramentOfTheSickLink, url);
+        ExtentReportsManager.setTestName("Clicking the \"Sakrament chorych\" link");
+
+        check(SacramentsPageSteps::clickTheSacramentOfTheSickLink, url, Message.getMessage(url));
     }
 }
