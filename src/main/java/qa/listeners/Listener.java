@@ -49,7 +49,7 @@ public class Listener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult iTestResult) {
 
-        ExtentReportsManager.setTestFailed("Test failed on method " + iTestResult.getMethod().getMethodName());
+        ExtentReportsManager.setTestFailed(iTestResult.getThrowable().getMessage());
 
         saveTextLog(getTestMethodName(iTestResult) + "- failed");
     }
