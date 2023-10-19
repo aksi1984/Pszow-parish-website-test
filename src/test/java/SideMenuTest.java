@@ -6,7 +6,11 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.stepclasses.SideMenuSteps;
+import qa.utils.ExtentReportsManager;
+import qa.utils.Message;
+
 import java.util.function.Consumer;
+
 
 @Epic("Smoke tests")
 @Feature("Side menu links tests")
@@ -19,11 +23,11 @@ public class SideMenuTest extends BaseTest {
         sideMenuSteps = new SideMenuSteps(new SideMenu(getDriver()));
     }
 
-    private void check(Consumer<SideMenuSteps> consumer, String expectedURL) {
+    private void check(Consumer<SideMenuSteps> consumer, String expectedURL, String assertMessage) {
 
         consumer.accept(sideMenuSteps);
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), expectedURL);
+        Assert.assertEquals(getDriver().getCurrentUrl(), expectedURL, assertMessage);
     }
 
     @Test(priority = 6)
@@ -33,9 +37,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'LITANIA DO PANI UŚMIECHNIĘTEJ' link")
     public void litanyLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"LITANIA DO PANI UŚMIECHNIĘTEJ\" link");
+        ExtentReportsManager.setTestName("Clicking the \"LITANIA DO PANI UŚMIECHNIĘTEJ\" link");
 
-        check(SideMenuSteps::clickTheLitanyLink, url);
+        check(SideMenuSteps::clickTheLitanyLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 7)
@@ -45,9 +49,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'HISTORIA PARAFII' link")
     public void parishHistoryLink(String url) {
 
-       // ExtentReportsManager.setTestName("\"HISTORIA PARAFII\" link");
+        ExtentReportsManager.setTestName("Clicking the \"HISTORIA PARAFII\" link");
 
-        check(SideMenuSteps::clickTheParishHistoryLink, url);
+        check(SideMenuSteps::clickTheParishHistoryLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 8)
@@ -57,9 +61,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'PARAFIA WCZORAJ I DZIŚ' link")
     public void yesterdayAndNowLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"PARAFIA WCZORAJ I DZIŚ\" link");
+        ExtentReportsManager.setTestName("Clicking the \"PARAFIA WCZORAJ I DZIŚ\" link");
 
-        check(SideMenuSteps::clickTheParishYesterdayAndNowLink, url);
+        check(SideMenuSteps::clickTheParishYesterdayAndNowLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 9)
@@ -69,9 +73,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'WNĘTRZE BAZYLIKI' link")
     public void basilicaInsideLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"WNĘTRZE BAZYLIKI - PANORAMA\" link");
+        ExtentReportsManager.setTestName("Clicking the \"WNĘTRZE BAZYLIKI - PANORAMA\" link");
 
-        check(SideMenuSteps::clickTheBasilicaInsideLink, url);
+        check(SideMenuSteps::clickTheBasilicaInsideLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 10)
@@ -81,9 +85,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'WSPÓLNOTY PARAFIALNE' link")
     public void parishCommunityLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"WSPÓLNOTY PARAFIALNE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"WSPÓLNOTY PARAFIALNE\" link");
 
-        check(SideMenuSteps::clickTheParishCommunityLink, url);
+        check(SideMenuSteps::clickTheParishCommunityLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 11)
@@ -93,9 +97,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'SAKRAMENTY - INFORMACJE' link")
     public void sacramentsInfoLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"SAKRAMENTY - INFORMACJE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"SAKRAMENTY - INFORMACJE\" link");
 
-        check(SideMenuSteps::clickTheSacramentsLink, url);
+        check(SideMenuSteps::clickTheSacramentsLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 12)
@@ -105,9 +109,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'KALWARIA PSZOWSKA' link")
     public void calvaryLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"KALWARIA PSZOWSKA\" link");
+        ExtentReportsManager.setTestName("Clicking the \"KALWARIA PSZOWSKA\" link");
 
-        check(SideMenuSteps::clickTheCalvaryLink, url);
+        check(SideMenuSteps::clickTheCalvaryLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 13)
@@ -117,9 +121,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'GALERIA ZDJĘĆ' link")
     public void photoGalleryLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"GALERIA ZDJĘĆ\" link");
+        ExtentReportsManager.setTestName("Clicking the \"GALERIA ZDJĘĆ\" link");
 
-        check(SideMenuSteps::clickThePhotoGalleryLink, url);
+        check(SideMenuSteps::clickThePhotoGalleryLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 18)
@@ -129,9 +133,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'GALERIA FILMÓW' link")
     public void filmsLink(String url) throws InterruptedException {
 
-       // ExtentReportsManager.setTestName("\"GALERIA FILMÓW\" link");
+        ExtentReportsManager.setTestName("Clicking the \"GALERIA FILMÓW\" link");
 
-        check(SideMenuSteps::clickTheFilmsLink, url);
+        check(SideMenuSteps::clickTheFilmsLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 14)
@@ -141,9 +145,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'WIECZÓR Z JEZUSEM' link")
     public void eveningWithJesusLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"WIECZÓR Z JEZUSEM\" link");
+        ExtentReportsManager.setTestName("Clicking the \"WIECZÓR Z JEZUSEM\" link");
 
-        check(SideMenuSteps::clickTheEveningWithJesusLink, url);
+        check(SideMenuSteps::clickTheEveningWithJesusLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 15)
@@ -153,9 +157,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'REGULAMIN CMENTARZA' link")
     public void cemeteryRegulationsLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"REGULAMIN CMENTARZA\" link");
+        ExtentReportsManager.setTestName("Clicking the \"REGULAMIN CMENTARZA\" link");
 
-        check(SideMenuSteps::clickTheCemeteryRegulationsLink, url);
+        check(SideMenuSteps::clickTheCemeteryRegulationsLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 16)
@@ -165,9 +169,9 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY' link")
     public void delegateLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY\" link");
+        ExtentReportsManager.setTestName("Clicking the \"DELEGAT DS. OCHRONY DZIECI I MŁODZIEŻY\" link");
 
-        check(SideMenuSteps::clickTheDelegateLink, url);
+        check(SideMenuSteps::clickTheDelegateLink, url, Message.getMessage(url));
     }
 
     @Test(priority = 17)
@@ -177,8 +181,8 @@ public class SideMenuTest extends BaseTest {
     @Story("Clicking the 'DZIAŁALNOŚĆ CHARYTATYWNA PARAFII' link")
     public void parishCharitableActivitiesLink(String url) {
 
-        //ExtentReportsManager.setTestName("\"DZIAŁALNOŚĆ CHARYTATYWNA PARAFII\" link");
+        ExtentReportsManager.setTestName("Clicking the \"DZIAŁALNOŚĆ CHARYTATYWNA PARAFII\" link");
 
-        check(SideMenuSteps::clickTheParishCharitableActivitiesLink, url);
+        check(SideMenuSteps::clickTheParishCharitableActivitiesLink, url, Message.getMessage(url));
     }
 }

@@ -7,7 +7,11 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.MiddleMenu;
 import qa.stepclasses.MiddleMenuSteps;
+import qa.utils.ExtentReportsManager;
+import qa.utils.Message;
+
 import java.util.function.Consumer;
+
 
 @Epic("Smoke tests")
 @Feature("Middle menu links test")
@@ -20,7 +24,7 @@ public class MiddleMenuTest extends BaseTest {
         middleMenuSteps = new MiddleMenuSteps(new MiddleMenu(getDriver()));
     }
 
-    private void check(Consumer<MiddleMenuSteps> consumer, String expectedTitle) {
+    private void check(Consumer<MiddleMenuSteps> consumer, String expectedTitle, String assertMessage) {
 
         consumer.accept(middleMenuSteps);
 
@@ -29,7 +33,7 @@ public class MiddleMenuTest extends BaseTest {
 
         getDriver().switchTo().window(getTabs().get(getTabs().size() - 1));
 
-        Assert.assertEquals(getDriver().getTitle(), expectedTitle);
+        Assert.assertEquals(getDriver().getTitle(), expectedTitle, assertMessage);
     }
 
     @Test(priority = 3)
@@ -39,9 +43,9 @@ public class MiddleMenuTest extends BaseTest {
     @Story("Clicking the 'Camera' link")
     public void cameraLink(String title) {
 
-        //ExtentReportsManager.setTestName("\"Zobacz kościół z perspektywy NOWEJ kamery online\" link");
+        ExtentReportsManager.setTestName("Clicking the \"Zobacz kościół z perspektywy NOWEJ kamery online\" link");
 
-        check(MiddleMenuSteps::clickCameraLink, title);
+        check(MiddleMenuSteps::clickCameraLink, title, Message.getMessage2(title));
     }
 
     @Test(priority = 2)
@@ -51,9 +55,9 @@ public class MiddleMenuTest extends BaseTest {
     @Story("Clicking the 'Facebook' link")
     public void facebookLink(String title) {
 
-        //ExtentReportsManager.setTestName("\"Zobacz nas na facebook'u!\"");
+        ExtentReportsManager.setTestName("Clicking the \"Zobacz nas na facebook'u!\"");
 
-        check(MiddleMenuSteps::clickFacebookLink, title);
+        check(MiddleMenuSteps::clickFacebookLink, title, Message.getMessage2(title));
     }
 
     @Test(priority = 1)
@@ -63,9 +67,9 @@ public class MiddleMenuTest extends BaseTest {
     @Story("Clicking the 'Archdiocese' link")
     public void archdioceseLink(String title) {
 
-        //ExtentReportsManager.setTestName("\"Główna strona Archidiecezji Katowickiej\"");
+        ExtentReportsManager.setTestName("Clicking \"Główna strona Archidiecezji Katowickiej\"");
 
         middleMenuSteps.clickArchdioceseLink();
-        Assert.assertEquals(getDriver().getTitle(), title);
+        Assert.assertEquals(getDriver().getTitle(), title, Message.getMessage2(title));
     }
 }

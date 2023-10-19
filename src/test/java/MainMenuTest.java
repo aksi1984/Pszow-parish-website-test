@@ -5,7 +5,9 @@ import qa.base.BaseTest;
 import qa.components.MainMenu;
 import org.testng.annotations.Test;
 import qa.stepclasses.MainMenuSteps;
+import qa.utils.ExtentReportsManager;
 import io.qameta.allure.*;
+import qa.utils.Message;
 
 @Epic("Smoke tests")
 @Feature("Main menu links tests")
@@ -27,10 +29,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Ogłoszenia duszpasterskie' link")
     public void pastoralAnnouncements(String url) {
 
-        //ExtentReportsManager.setTestName("\"OGŁOSZENIA DUSZPASTERSKIE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"OGŁOSZENIA DUSZPASTERSKIE\" link");
 
         mainMenuSteps.clickThePastoraAnnouncementsLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 2)
@@ -40,10 +42,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Intencje mszalne' link")
     public void massIntentions(String url) {
 
-        //ExtentReportsManager.setTestName("\"INTENCJE MSZALNE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"INTENCJE MSZALNE\" link");
 
         mainMenuSteps.clickTheMassIntentionsLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 3)
@@ -53,10 +55,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Pogrzeby' link")
     public void funerals(String url) {
 
-        //ExtentReportsManager.setTestName("\"POGRZEBY\" link");
+        ExtentReportsManager.setTestName("Clicking the \"POGRZEBY\" link");
 
         mainMenuSteps.clickTheFuneralsLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 4)
@@ -66,10 +68,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Szafarze' link")
     public void stewards(String url) {
 
-        //ExtentReportsManager.setTestName("\"SZAFARZE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"SZAFARZE\" link");
 
         mainMenuSteps.clickTheStewardsLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 5)
@@ -79,10 +81,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Duszpasterze' link")
     public void priests(String url) {
 
-        //ExtentReportsManager.setTestName("\"DUSZPASTERZE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"DUSZPASTERZE\" link");
 
         mainMenuSteps.clickThePriestsLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 6)
@@ -92,10 +94,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Kancelaria' link")
     public void office(String url) {
 
-        //ExtentReportsManager.setTestName("\"KANCELARIA\" link");
+        ExtentReportsManager.setTestName("Clicking the \"KANCELARIA\" link");
 
         mainMenuSteps.clickTheOfficeLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 7)
@@ -105,10 +107,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Kontakt' link")
     public void contact(String url) {
 
-        //ExtentReportsManager.setTestName("\"KONTAKT\" link");
+        ExtentReportsManager.setTestName("Clicking the \"KONTAKT\" link");
 
         mainMenuSteps.clickTheContactLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 8)
@@ -118,10 +120,10 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Wsparcie parafii' link")
     public void parishSupport(String url) {
 
-        //ExtentReportsManager.setTestName("\"WSPARCIE PARAFII\" link");
+        ExtentReportsManager.setTestName("Clicking the \"WSPARCIE PARAFII\" link");
 
         mainMenuSteps.clickTheParishSupportLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 
     @Test(priority = 9)
@@ -131,9 +133,9 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the 'Spowiedź w bazylice' link")
     public void confession(String url) {
 
-        //ExtentReportsManager.setTestName("\"SPOWIEDŻ W BAZYLICE\" link");
+        ExtentReportsManager.setTestName("Clicking the \"SPOWIEDŻ W BAZYLICE\" link");
 
         mainMenuSteps.clickTheConfessionLink();
-        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url, Message.getMessage(url));
     }
 }

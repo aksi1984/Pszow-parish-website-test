@@ -9,7 +9,7 @@ import qa.components.SearchResultPage;
 import qa.stepclasses.SearchEngineSteps;
 import qa.utils.Provider;
 import java.util.function.Consumer;
-
+import qa.utils.ExtentReportsManager;
 
 @Epic("Smoke tests")
 @Feature("Search engine tests")
@@ -36,19 +36,19 @@ public class SearchEngineTest extends BaseTest {
     @Story("Clicking on the search engine field")
     public void clickingOnField() {
 
-        //ExtentReportsManager.setTestName("Clicking on the search engine field");
+        ExtentReportsManager.setTestName("Clicking on the search engine field");
 
         searchEngine.clickOnField();
 
-        Assert.assertEquals(searchEngine.getFieldValue(), "");
+        Assert.assertEquals(searchEngine.getFieldValue(), "", "Placeholder does not disappear when clicking the search box");
     }
 
-    private void check(String phrase, Consumer<Boolean> consumer) {
+    private void check(String phrase, Consumer<SearchResultPage> consumer) {
 
         searchEngineSteps.enterPhrase(phrase);
         searchEngineSteps.pressTheEnterKey();
 
-        consumer.accept(searchResultPage.isContainerPageContentPresent());
+        consumer.accept(searchResultPage);
     }
 
     @Test(priority = 2, dataProvider = "correctPhrase", dataProviderClass = Provider.class)
@@ -57,9 +57,9 @@ public class SearchEngineTest extends BaseTest {
     @Epic("Searching with a correct phrase")
     public void correctPhrase(String phrase) {
 
-        //ExtentReportsManager.setTestName("Searching with correct phrase");
+        ExtentReportsManager.setTestName("Searching results with \"" + phrase + "\" as a correct phrase");
 
-        check(phrase, Assert::assertTrue);
+        check(phrase, (SearchResultPage srp)->{  Assert.assertTrue(srp.isContainerPageContentPresent(), "No results after entering the correct phrase: \"" + phrase + "\""); });
     }
 
     @Test(priority = 3, dataProvider = "incorrectPhrase", dataProviderClass = Provider.class)
@@ -68,8 +68,8 @@ public class SearchEngineTest extends BaseTest {
     @Epic("Searching with an incorrect phrase")
     public void incorrectPhrase(String phrase) {
 
-        //ExtentReportsManager.setTestName("Searching with incorrect phrase");
+        ExtentReportsManager.setTestName("Searching results with \"" + phrase + "\" as an incorrect phrase");
 
-        check(phrase, Assert::assertFalse);
+        check(phrase, (SearchResultPage srp)->{ Assert.assertFalse(srp.isContainerPageContentPresent(), "Results found after entering the incorrect phrase: \"" + phrase + "\""); });
     }
 }
