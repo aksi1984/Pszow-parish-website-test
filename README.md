@@ -5,6 +5,8 @@ Automatic tests of the [official website](https://bazylika-pszow.pl/) of the Psz
 Testing techniques used:
   - use cases
 
+You can also view the test plan and test reports:
+
 - [Test plan](https://drive.google.com/drive/folders/1Tgqu8bUeB26FQE3Vr_VaUEPEGna91wi6?hl=pl)
 
 - [Reports](https://drive.google.com/drive/folders/1iLMP_r13vDdILzhZajW4VEPdCJq1YeHw?hl=pl)
