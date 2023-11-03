@@ -40,10 +40,10 @@ public class MiddleMenuTest extends BaseTest {
     @Parameters({"youtubeTitle"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the camera page opens after clicking on the 'Camera' link.")
-    @Story("Clicking the 'Camera' link")
+    @Story("Clicking 'Camera'")
     public void cameraLink(String title) {
 
-        ExtentReportsManager.setTestName("Clicking the \"Zobacz kościół z perspektywy NOWEJ kamery online\" link");
+        ExtentReportsManager.setTestName("Clicking \"Zobacz kościół z perspektywy NOWEJ kamery online\"");
 
         check(MiddleMenuSteps::clickCameraLink, title, Message.getMessage2(title));
     }
@@ -52,10 +52,10 @@ public class MiddleMenuTest extends BaseTest {
     @Parameters({"facebookTitle"})
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the Facebook page opens after clicking on the 'Facebook' link.")
-    @Story("Clicking the 'Facebook' link")
+    @Story("Clicking 'Facebook'")
     public void facebookLink(String title) {
 
-        ExtentReportsManager.setTestName("Clicking the \"Zobacz nas na facebook'u!\"");
+        ExtentReportsManager.setTestName("Clicking \"Zobacz nas na facebook'u!\"");
 
         check(MiddleMenuSteps::clickFacebookLink, title, Message.getMessage2(title));
     }
@@ -64,7 +64,7 @@ public class MiddleMenuTest extends BaseTest {
     @Parameters("archdioceseTitle")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the archdiocese page opens after clicking on the 'Archdiocese' link.")
-    @Story("Clicking the 'Archdiocese' link")
+    @Story("Clicking 'Archdiocese'")
     public void archdioceseLink(String title) {
 
         ExtentReportsManager.setTestName("Clicking \"Główna strona Archidiecezji Katowickiej\"");
