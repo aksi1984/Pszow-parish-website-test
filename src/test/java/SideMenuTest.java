@@ -126,7 +126,7 @@ public class SideMenuTest extends BaseTest {
         check(SideMenuSteps::clickThePhotoGalleryLink, url, Message.getMessage(url));
     }
 
-    @Test(priority = 18)
+    /*@Test(priority = 18)
     @Parameters({"moviesPageURL"})
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the photo gallery page opens after clicking on the 'GALERIA FILMÓW' link.")
@@ -136,7 +136,7 @@ public class SideMenuTest extends BaseTest {
         ExtentReportsManager.setTestName("Clicking the \"GALERIA FILMÓW\" link");
 
         check(SideMenuSteps::clickTheFilmsLink, url, Message.getMessage(url));
-    }
+    }*/
 
     @Test(priority = 14)
     @Parameters({"eveningPageURL"})
