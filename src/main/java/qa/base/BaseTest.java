@@ -4,12 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import qa.driver.Driver;
+import qa.browsermanager.BrowserManager;
+import qa.driver.WebDriverProvider;
 import qa.enums.Browser;
 import qa.utils.JSONReader;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 
 
@@ -26,10 +26,8 @@ public class BaseTest {
     @BeforeMethod
     public void startDriver() {
 
-        driver = Driver.createDriver(Browser.CHROME);
-        driver.navigate().to("https://bazylika-pszow.pl");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+        driver = WebDriverProvider.getFactory(Browser.CHROME).createDriver();
+        BrowserManager.start(driver);
     }
 
     public ArrayList<String> getTabs() {
@@ -45,6 +43,6 @@ public class BaseTest {
     @AfterMethod
     public void quitDriver() {
 
-        driver.quit();
+        BrowserManager.quit(driver);
     }
 }
