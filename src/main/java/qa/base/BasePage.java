@@ -4,14 +4,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import qa.toby.ToBy;
 
 import java.time.Duration;
 
 public class BasePage {
 
     private final WebDriver driver;
-
-    private JavascriptExecutor javascriptExecutor;
+    private final JavascriptExecutor javascriptExecutor;
+    private final WebDriverWait wait;
 
     protected BasePage(WebDriver driver) {
 
@@ -19,11 +21,17 @@ public class BasePage {
         PageFactory.initElements(driver, this);
 
         javascriptExecutor = (JavascriptExecutor) driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     protected WebDriver getDriver() {
 
         return driver;
+    }
+
+    protected void waitUntilElementIsVisible(WebElement element) throws IllegalAccessException {
+
+        ToBy.get(element);
     }
 
     protected void clickElement(WebElement element) {
