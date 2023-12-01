@@ -13,19 +13,19 @@ public class MiddleMenuSteps {
     }
 
     @Step("Click the camera link")
-    public void clickCameraLink() {
+    public void clickCameraLink() throws IllegalAccessException {
 
         middleMenu.clickCameraLink();
     }
 
     @Step("Click the facebook link")
-    public void clickFacebookLink() {
+    public void clickFacebookLink() throws IllegalAccessException {
 
         middleMenu.clickFacebookLink();
     }
 
     @Step("Click the archdiocese link")
-    public void clickArchdioceseLink() {
+    public void clickArchdioceseLink() throws IllegalAccessException {
 
         middleMenu.clickArchdioceseLink();
     }

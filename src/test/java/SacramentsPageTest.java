@@ -9,8 +9,8 @@ import qa.pages.Sacraments;
 import qa.stepclasses.SacramentsPageSteps;
 import qa.utils.ExtentReportsManager;
 import qa.utils.Message;
+import qa.utils.MyConsumer;
 
-import java.util.function.Consumer;
 
 @Epic("Smoke tests")
 @Feature("Sacraments page link tests")
@@ -19,7 +19,7 @@ public class SacramentsPageTest extends BaseTest {
     private SacramentsPageSteps sacramentsPageSteps;
 
     @BeforeMethod
-    public void create() {
+    public void create() throws IllegalAccessException {
 
         sacramentsPageSteps = new SacramentsPageSteps(new Sacraments(getDriver()));
         SideMenu sideMenu = new SideMenu(getDriver());
@@ -27,7 +27,7 @@ public class SacramentsPageTest extends BaseTest {
         sideMenu.click("SAKRAMENTY – INFORMACJE");
     }
 
-    private void check(Consumer<SacramentsPageSteps> consumer, String expectedURL, String assertMessage) {
+    private void check(MyConsumer<SacramentsPageSteps> consumer, String expectedURL, String assertMessage) throws IllegalAccessException {
 
         consumer.accept(sacramentsPageSteps);
 
@@ -39,7 +39,7 @@ public class SacramentsPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of baptism page opens after clicking on the 'Sakrament chrztu' link.")
     @Story("Clicking the 'Sakrament chrztu' link")
-    public void sacramentOfBaptismLink(String url) {
+    public void sacramentOfBaptismLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"Sakrament chrztu\" link");
 
@@ -51,7 +51,7 @@ public class SacramentsPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the eucharist page opens after clicking on the 'Eucharystia' link.")
     @Story("Clicking the 'Eucharystia' link")
-    public void eucharist(String url) {
+    public void eucharist(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"Eucharystia\" link");
 
@@ -63,7 +63,7 @@ public class SacramentsPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of penance page opens after clicking on the 'Sakrament pokuty' link.")
     @Story("Clicking the 'Sakrament pokuty' link")
-    public void sacramentOfPenanceLink(String url) {
+    public void sacramentOfPenanceLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"Sakrament pokuty\" link");
 
@@ -75,7 +75,7 @@ public class SacramentsPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of confirmation page opens after clicking on the 'Sakrament bierzmowania' link.")
     @Story("Clicking the 'Sakrament bierzmowania' link")
-    public void confirmation(String url) {
+    public void confirmation(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"Sakrament bierzmowania\" link");
 
@@ -87,7 +87,7 @@ public class SacramentsPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of marriage page opens after clicking on the 'Sakrament małżestwa' link.")
     @Story("Clicking the 'Sakrament małżeństwa' link")
-    public void sacramentOfMarriage(String url) {
+    public void sacramentOfMarriage(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"Sakrament małżeństwa\" link");
 
@@ -99,7 +99,7 @@ public class SacramentsPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the sacrament of the sick page opens after clicking on the 'Sakrament chorych' link.")
     @Story("Clicking the 'Sakrament chorych' link")
-    public void sacramentOfTheSick(String url) {
+    public void sacramentOfTheSick(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"Sakrament chorych\" link");
 

@@ -19,7 +19,7 @@ public class SearchEngineSteps {
     }
 
     @Step("Press the 'Enter' key")
-    public void pressTheEnterKey() {
+    public void pressTheEnterKey() throws IllegalAccessException {
 
         searchEngine.submit();
     }

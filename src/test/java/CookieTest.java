@@ -17,7 +17,7 @@ import java.util.Set;
 public class CookieTest extends BaseTest {
 
     @BeforeMethod
-    public void init() {
+    public void init() throws IllegalAccessException {
 
         CookiesSection cookiesSection = new CookiesSection(getDriver());
         cookiesSection.acceptCookies();

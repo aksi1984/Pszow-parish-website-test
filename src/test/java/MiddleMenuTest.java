@@ -9,8 +9,7 @@ import qa.components.MiddleMenu;
 import qa.stepclasses.MiddleMenuSteps;
 import qa.utils.ExtentReportsManager;
 import qa.utils.Message;
-
-import java.util.function.Consumer;
+import qa.utils.MyConsumer;
 
 
 @Epic("Smoke tests")
@@ -24,7 +23,7 @@ public class MiddleMenuTest extends BaseTest {
         middleMenuSteps = new MiddleMenuSteps(new MiddleMenu(getDriver()));
     }
 
-    private void check(Consumer<MiddleMenuSteps> consumer, String expectedTitle, String assertMessage) {
+    private void check(MyConsumer<MiddleMenuSteps> consumer, String expectedTitle, String assertMessage) throws IllegalAccessException {
 
         consumer.accept(middleMenuSteps);
 
@@ -41,7 +40,7 @@ public class MiddleMenuTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the camera page opens after clicking on the 'Camera' link.")
     @Story("Clicking 'Camera'")
-    public void cameraLink(String title) {
+    public void cameraLink(String title) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking \"Zobacz kościół z perspektywy NOWEJ kamery online\"");
 
@@ -53,7 +52,7 @@ public class MiddleMenuTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the Facebook page opens after clicking on the 'Facebook' link.")
     @Story("Clicking 'Facebook'")
-    public void facebookLink(String title) {
+    public void facebookLink(String title) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking \"Zobacz nas na facebook'u!\"");
 
@@ -65,7 +64,7 @@ public class MiddleMenuTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: checking if the archdiocese page opens after clicking on the 'Archdiocese' link.")
     @Story("Clicking 'Archdiocese'")
-    public void archdioceseLink(String title) {
+    public void archdioceseLink(String title) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking \"Główna strona Archidiecezji Katowickiej\"");
 

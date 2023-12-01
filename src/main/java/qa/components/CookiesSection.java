@@ -15,8 +15,9 @@ public class CookiesSection extends BasePage {
     @FindBy(id = "cn-accept-cookie")
     WebElement acceptCookieButton;
 
-    public void acceptCookies() {
+    public void acceptCookies() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(acceptCookieButton);
         acceptCookieButton.click();
     }
 }

@@ -18,9 +18,10 @@ public class ParishCommunity extends BasePage {
     @FindBy(xpath = "//div[@class='container pageContent clearfix']")
     WebElement container;
 
-    public void click(int index) {
+    public void click(int index) throws IllegalAccessException {
 
         List<WebElement> elements = container.findElements(By.xpath("//img[@class]"));
+        waitUntilElementIsVisible(elements.get(0));
         clickElement(elements.get(index));
     }
 }

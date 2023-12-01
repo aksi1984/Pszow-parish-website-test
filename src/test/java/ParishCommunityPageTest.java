@@ -18,7 +18,7 @@ public class ParishCommunityPageTest extends BaseTest {
     private ParishCommunityPageSteps parishCommunityPageSteps;
 
     @BeforeMethod
-    public void create() {
+    public void create() throws IllegalAccessException {
 
         ParishCommunity parishCommunity = new ParishCommunity(getDriver());
         parishCommunityPageSteps = new ParishCommunityPageSteps(parishCommunity);
@@ -27,7 +27,7 @@ public class ParishCommunityPageTest extends BaseTest {
         sideMenu.click("WSPÓLNOTY PARAFIALNE");
     }
 
-    private void check(ParishCommunityURLs index, String expectedURL, String assertMessage) {
+    private void check(ParishCommunityURLs index, String expectedURL, String assertMessage) throws IllegalAccessException {
 
         parishCommunityPageSteps.clickTheImage(index);
 
@@ -39,7 +39,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'DUSZPASTERZE' image")
     @Story("Clicking the 'DUSZPASTERZE' image")
-    public void priestsLink(String url) {
+    public void priestsLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"DUSZPASTERZE\" image");
 
@@ -51,7 +51,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the pastoral council page opens after clicking on the 'PARAFIALNA RADA DUSZPASTERSKA' image")
     @Story("Clicking the 'PARAFIALNA RADA DUSZPASTERSKA' image")
-    public void pastoralCouncilLink(String url) {
+    public void pastoralCouncilLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"PARAFIALNA RADA DUSZPASTERSKA\" image");
 
@@ -63,7 +63,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'NADZWYCZAJNI SZAFARZE KOMUNII ŚWIĘTEJ' image")
     @Story("Clicking the 'NADZWYCZAJNI SZAFARZE KOMUNII ŚWIĘTEJ' image")
-    public void stewardsLink(String url) {
+    public void stewardsLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"NADZWYCZAJNI SZAFARZE KOMUNII ŚWIĘTEJ\" image");
 
@@ -75,7 +75,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'MINISTRANCI' image")
     @Story("Clicking the 'MINISTRANCI' image")
-    public void altarBoysLink(String url) {
+    public void altarBoysLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"MINISTRANCI\" image");
 
@@ -87,7 +87,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'DZIECI MARYI' image")
     @Story("Clicking the 'DZIECI MARYI' image")
-    public void childrenOfMary(String url) {
+    public void childrenOfMary(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"DZIECI MARYI\" image");
 
@@ -99,7 +99,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'OAZA MŁODZIEŻOWA' image")
     @Story("Clicking the 'OAZA MŁODZIEŻOWA' image")
-    public void youthOasisLink(String url) {
+    public void youthOasisLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"OAZA MŁODZIEŻOWA\" image");
 
@@ -111,7 +111,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'DOMOWY KOŚCIÓŁ' image")
     @Story("Clicking the 'DOMOWY KOŚCIÓŁ' image")
-    public void homeChurchLink(String url) {
+    public void homeChurchLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"DOMOWY KOŚCIÓŁ\" image");
 
@@ -123,7 +123,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'KATECHEZA DOROSŁYCH' image")
     @Story("Clicking the 'KATECHEZA DOROSŁYCH' image")
-    public void adultCatechesisLink(String url) {
+    public void adultCatechesisLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"KATECHEZA DOROSŁYCH\" image");
 
@@ -135,7 +135,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'LEGION MARYI' image")
     @Story("Clicking the 'LEGION MARYI' image")
-    public void legionOfMaryLink(String url) {
+    public void legionOfMaryLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"LEGION MARYI\" image");
 
@@ -147,7 +147,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'PSZOWSKIE OGNISKO CUDOWNIE OCALONYCH' image")
     @Story("Clicking the 'PSZOWSKI OGNISKO CUDOWNIE OCALONYCH' image")
-    public void miraculousySavedLink(String url) {
+    public void miraculousySavedLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"PSZOWSKI OGNISKO CUDOWNIE OCALONYCH\" image");
 
@@ -159,7 +159,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'ŻYWY RÓŻANIEC' image")
     @Story("Clicking the 'ŻYWY RÓŻANIEC' image")
-    public void livingRosaryLink(String url) {
+    public void livingRosaryLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"ŻYWY RÓŻANIEC\" image");
 
@@ -171,7 +171,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'LECTIO DIVINA' image")
     @Story("Clicking the 'LECTIO DIVINA' image")
-    public void lectioDivinaLink(String url) {
+    public void lectioDivinaLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"LECTIO DIVINA\" image");
 
@@ -183,7 +183,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'III FRANCISZKAŃSKI ZAKON ŚWIECKICH' image")
     @Story("Clicking the 'III FRANCISZKAŃSKI ZAKON ŚWIECKICH' image")
-    public void secularOrderLink(String url) {
+    public void secularOrderLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"III FRANCISZKAŃSKI ZAKON ŚWIECKICH\" image");
 
@@ -195,7 +195,7 @@ public class ParishCommunityPageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the priests page opens after clicking on the 'WIECZÓR Z JEZUSEM' image")
     @Story("Clicking the 'WIECZÓR Z JEZUSEM' image")
-    public void eveningWithJesusLink(String url) {
+    public void eveningWithJesusLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"WIECZÓR Z JEZUSEM\" image");
 

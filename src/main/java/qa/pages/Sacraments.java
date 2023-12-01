@@ -17,9 +17,10 @@ public class Sacraments extends BasePage {
     @FindBy(xpath = ".//div[@class='container pageContent clearfix']")
     WebElement container;
 
-    public void click(String linkText) {
+    public void click(String linkText) throws IllegalAccessException {
 
         WebElement element = container.findElement(By.linkText(linkText));
+        waitUntilElementIsVisible(element);
         clickElement(element);
     }
 }

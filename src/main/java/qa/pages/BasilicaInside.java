@@ -15,8 +15,9 @@ public class BasilicaInside extends BasePage {
     @FindBy(linkText = "Prezbiterium")
     WebElement presbyteryLink;
 
-    public void clickPresbyteryLink() {
+    public void clickPresbyteryLink() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(presbyteryLink);
         presbyteryLink.click();
     }
 }

@@ -20,8 +20,9 @@ public class SearchEngine extends BasePage {
     @FindBy(id = "s")
     WebElement field;
 
-    public void clickOnField() {
+    public void clickOnField() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(field);
         actions.moveByOffset(field.getLocation().x + 30, field.getLocation().y + 5).click();
         actions.perform();
     }
@@ -37,8 +38,9 @@ public class SearchEngine extends BasePage {
         javascriptExecutor.executeScript(script);
     }
 
-    public void submit() {
+    public void submit() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(field);
         field.submit();
     }
 }

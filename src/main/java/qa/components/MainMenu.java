@@ -2,6 +2,7 @@ package qa.components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import qa.base.BasePage;
 
 public class MainMenu extends BasePage {
@@ -11,8 +12,10 @@ public class MainMenu extends BasePage {
         super(driver);
     }
 
-    public void click(String linkText) {
+    public void click(String linkText) throws IllegalAccessException {
 
-        getDriver().findElement(By.linkText(linkText)).click();
+        WebElement element = getDriver().findElement(By.linkText(linkText));
+        waitUntilElementIsVisible(element);
+        element.click();
     }
 }

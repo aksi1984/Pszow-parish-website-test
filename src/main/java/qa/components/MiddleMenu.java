@@ -21,18 +21,21 @@ public class MiddleMenu extends BasePage {
     @FindBy(xpath = "//a[@href='https://www.archidiecezjakatowicka.pl/']")
     WebElement archdioceseLink;
 
-    public void clickCameraLink() {
+    public void clickCameraLink() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(cameraLink);
         clickElement(cameraLink);
     }
 
-    public void clickArchdioceseLink() {
+    public void clickArchdioceseLink() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(cameraLink);
         clickElement(archdioceseLink);
     }
 
-    public void clickFacebookLink() {
+    public void clickFacebookLink() throws IllegalAccessException {
 
+        waitUntilElementIsVisible(cameraLink);
         clickElement(facebookLink);
     }
 }

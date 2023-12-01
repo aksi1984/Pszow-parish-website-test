@@ -14,7 +14,7 @@ public class ParishCommunityPageSteps {
     }
 
     @Step("Click the image link")
-    public void clickTheImage(ParishCommunityURLs parishCommunityURLs) {
+    public void clickTheImage(ParishCommunityURLs parishCommunityURLs) throws IllegalAccessException {
 
         parishCommunity.click(parishCommunityURLs.ordinal());
     }

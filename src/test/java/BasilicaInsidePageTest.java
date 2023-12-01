@@ -19,7 +19,7 @@ public class BasilicaInsidePageTest extends BaseTest {
     private BasilicaInsidePageSteps basilicaInsidePageSteps;
 
     @BeforeMethod
-    public void create() {
+    public void create() throws IllegalAccessException {
 
         basilicaInsidePageSteps = new BasilicaInsidePageSteps(new BasilicaInside(getDriver()));
 
@@ -32,7 +32,7 @@ public class BasilicaInsidePageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test description: checking if the presbytery page opens after clicking on the 'Prezbiterium' link")
     @Story("Clicking the 'Prezbiterium link'")
-    public void presbyteryLink(String url) {
+    public void presbyteryLink(String url) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking the \"PREZBITERIUM\" link");
 

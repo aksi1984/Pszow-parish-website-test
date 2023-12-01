@@ -13,7 +13,7 @@ public class BasilicaInsidePageSteps {
     }
 
     @Step("Click the 'Prezbiterium' link")
-    public void clickThePresbyteryLink() {
+    public void clickThePresbyteryLink() throws IllegalAccessException {
 
         basilicaInside.clickPresbyteryLink();
     }

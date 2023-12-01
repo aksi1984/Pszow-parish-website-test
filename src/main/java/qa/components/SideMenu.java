@@ -16,10 +16,10 @@ public class SideMenu extends BasePage {
     @FindBy(xpath = ".//div[@class='menu-nawigacja-lewa-container']")
     WebElement container;
 
-    public void click(String linkText) {
+    public void click(String linkText) throws IllegalAccessException {
 
         WebElement element = container.findElement(By.linkText(linkText));
-
+        waitUntilElementIsVisible(element);
         clickElement(element);
     }
 }

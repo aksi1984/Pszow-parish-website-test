@@ -20,7 +20,7 @@ public class SearchEngineTest extends BaseTest {
     private SearchEngineSteps searchEngineSteps;
 
     @BeforeMethod
-    public void create() {
+    public void create() throws IllegalAccessException {
 
         MainMenu mainMenu = new MainMenu(getDriver());
         searchEngine = new SearchEngine(getDriver());
@@ -34,7 +34,7 @@ public class SearchEngineTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Testing whether the placeholder disappears when the field is clicked")
     @Story("Clicking on the search engine field")
-    public void clickingOnField() {
+    public void clickingOnField() throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Clicking on the search engine field");
 
@@ -43,7 +43,7 @@ public class SearchEngineTest extends BaseTest {
         Assert.assertEquals(searchEngine.getFieldValue(), "", "Placeholder does not disappear when clicking the search box");
     }
 
-    private void check(String phrase, Consumer<SearchResultPage> consumer) {
+    private void check(String phrase, Consumer<SearchResultPage> consumer) throws IllegalAccessException {
 
         searchEngineSteps.enterPhrase(phrase);
         searchEngineSteps.pressTheEnterKey();
@@ -55,7 +55,7 @@ public class SearchEngineTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: testing whether articles will be found after searching with with a correct phrase")
     @Epic("Searching with a correct phrase")
-    public void correctPhrase(String phrase) {
+    public void correctPhrase(String phrase) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Searching results with \"" + phrase + "\" as a correct phrase");
 
@@ -66,7 +66,7 @@ public class SearchEngineTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test description: testing whether articles will be found after searching with with an incorrect phrase")
     @Epic("Searching with an incorrect phrase")
-    public void incorrectPhrase(String phrase) {
+    public void incorrectPhrase(String phrase) throws IllegalAccessException {
 
         ExtentReportsManager.setTestName("Searching results with \"" + phrase + "\" as an incorrect phrase");
 
