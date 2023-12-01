@@ -26,8 +26,10 @@ public class WebDriverProvider {
         try {
 
             return (WebDriverFactory) Class.forName(inheritedClassName).getConstructor().newInstance();
+
         } catch (ClassNotFoundException | InvocationTargetException | InstantiationException |
                  IllegalAccessException | NoSuchMethodException e) {
+
             throw new IllegalStateException(e);
         }
     }
