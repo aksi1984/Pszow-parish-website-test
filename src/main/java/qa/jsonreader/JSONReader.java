@@ -1,4 +1,4 @@
-package qa.utils;
+package qa.jsonreader;
 
 import com.google.common.io.Resources;
 import org.json.JSONArray;
