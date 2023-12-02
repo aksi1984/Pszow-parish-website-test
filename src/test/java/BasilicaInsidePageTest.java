@@ -7,7 +7,7 @@ import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.pages.BasilicaInside;
 import qa.stepclasses.BasilicaInsidePageSteps;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 import qa.utils.Message;
 
 import java.util.ArrayList;

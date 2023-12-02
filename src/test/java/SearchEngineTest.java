@@ -7,9 +7,9 @@ import qa.components.MainMenu;
 import qa.components.SearchEngine;
 import qa.components.SearchResultPage;
 import qa.stepclasses.SearchEngineSteps;
-import qa.utils.Provider;
+import qa.dataprovider.Provider;
 import java.util.function.Consumer;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 
 @Epic("Smoke tests")
 @Feature("Search engine tests")

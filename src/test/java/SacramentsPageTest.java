@@ -7,7 +7,7 @@ import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.pages.Sacraments;
 import qa.stepclasses.SacramentsPageSteps;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 import qa.utils.Message;
 import qa.utils.MyConsumer;
 

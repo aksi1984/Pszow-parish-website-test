@@ -1,6 +1,8 @@
-package qa.utils;
+package qa.dataprovider;
 
 import org.testng.annotations.DataProvider;
+import qa.jsonreader.JSONReader;
+
 public class Provider {
 
     @DataProvider(name = "correctPhrase")

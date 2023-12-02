@@ -4,7 +4,7 @@ import io.qameta.allure.Attachment;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 
 public class Listener implements ITestListener {
 

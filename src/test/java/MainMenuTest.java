@@ -5,7 +5,7 @@ import qa.base.BaseTest;
 import qa.components.MainMenu;
 import org.testng.annotations.Test;
 import qa.stepclasses.MainMenuSteps;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 import io.qameta.allure.*;
 import qa.utils.Message;
 

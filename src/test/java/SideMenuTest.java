@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.components.SideMenu;
 import qa.stepclasses.SideMenuSteps;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 import qa.utils.Message;
 import qa.utils.MyConsumer;
 

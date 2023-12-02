@@ -8,7 +8,7 @@ import qa.components.SideMenu;
 import qa.pages.ParishCommunity;
 import qa.stepclasses.ParishCommunityPageSteps;
 import qa.enums.ParishCommunityURLs;
-import qa.utils.ExtentReportsManager;
+import qa.extentreports.ExtentReportsManager;
 import qa.utils.Message;
 
 @Epic("Smoke tests")
