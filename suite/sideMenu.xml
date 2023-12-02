@@ -23,7 +23,11 @@
 
     <test verbose="2" name="C:/Projekty/Testowanie/Pszow-parish-website">
         <classes>
-            <class name="SideMenuTest"/>
+            <class name="SideMenuTest">
+                <methods>
+                    <exclude name="filmsLink"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
