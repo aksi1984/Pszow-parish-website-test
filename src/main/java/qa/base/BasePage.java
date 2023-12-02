@@ -1,9 +1,11 @@
 package qa.base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import qa.toby.ToBy;
 
@@ -31,7 +33,8 @@ public class BasePage {
 
     protected void waitUntilElementIsVisible(WebElement element) throws IllegalAccessException {
 
-        ToBy.get(element);
+        By locator = ToBy.get(element);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     protected void clickElement(WebElement element) {
