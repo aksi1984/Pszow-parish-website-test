@@ -28,7 +28,7 @@ jobs:
           command: mvn test
       # Test results
       - store_test_results:
-        path: target/surefire-reports
+          path: target/surefire-reports
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
