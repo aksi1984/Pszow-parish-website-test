@@ -26,6 +26,7 @@ jobs:
       - run:
           name: Test
           command: mvn test
+          
       - store_test_results:
         path: ./reports/junit
 
