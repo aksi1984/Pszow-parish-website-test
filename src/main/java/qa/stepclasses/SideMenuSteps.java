@@ -1,5 +1,5 @@
 package qa.stepclasses;
-
+/*
 import io.qameta.allure.Step;
 import qa.components.SideMenu;
 
@@ -90,3 +90,4 @@ public class SideMenuSteps {
         sideMenu.click("DZIAŁALNOŚĆ CHARYTATYWNA PARAFII");
     }
 }
+*/
