@@ -1,21 +1,21 @@
 package qa.base;
 
-import org.openqa.selenium.WebDriver;
+import com.microsoft.playwright.Page;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import qa.browsermanager.BrowserManager;
-import qa.driver.WebDriverProvider;
+import qa.driver.PlaywrightBrowserLauncher;
+import qa.driver.PlaywrightProvider;
 import qa.enums.Browser;
+import qa.enums.URLs;
 import qa.jsonreader.JSONReader;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 public class BaseTest {
 
-    private static WebDriver driver;
+    private PlaywrightBrowserLauncher launcher;
 
     @BeforeClass
     public void readJSONFile() throws IOException {
@@ -24,25 +24,26 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void startDriver() {
+    public void launch() {
 
-        driver = WebDriverProvider.getFactory(Browser.CHROME).createDriver();
-        BrowserManager.start(driver);
+        launcher = PlaywrightProvider.getFactory(Browser.CHROME);
+        launcher.create();
+        launcher.goToPage(URLs.HOME_PAGE.getName());
     }
 
-    public ArrayList<String> getTabs() {
+    protected void goToPage(String url) {
 
-        return new ArrayList<>(driver.getWindowHandles());
+        launcher.goToPage(url);
     }
 
-    public static WebDriver getDriver() {
+    protected Page getPage() {
 
-        return driver;
+        return launcher.getPage();
     }
 
     @AfterMethod
-    public void quitDriver() {
+    public void tearDown() {
 
-        BrowserManager.quit(driver);
+        launcher.close();
     }
 }
