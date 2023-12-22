@@ -12,9 +12,9 @@ public class MainMenu extends BasePage {
         super(driver);
     }
 
-    public void click(String linkText) throws IllegalAccessException {
+    public void click(String id) throws IllegalAccessException {
 
-        WebElement element = getDriver().findElement(By.linkText(linkText));
+        WebElement element = getDriver().findElement(By.id(id));
         waitUntilElementIsVisible(element);
         element.click();
     }
