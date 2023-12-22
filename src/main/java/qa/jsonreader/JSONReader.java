@@ -4,6 +4,7 @@ import com.google.common.io.Resources;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import qa.data.Link;
+import qa.data.Phrase;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,20 +31,16 @@ public class JSONReader {
         jsonObject = new JSONObject(Resources.toString(url, StandardCharsets.UTF_8));
     }
 
-    public static String[] get(String key, String node) {
+    public static Phrase[] getPhrases(String node) {
 
-        Object object = jsonObject.get(key);
-        JSONObject jsonObject1 = (JSONObject) object;
-        JSONArray jsonArray = jsonObject1.getJSONArray(node);
+        JSONArray jsonArray = getJSONArray("searchEngine", node);
 
-        String[] data = new String[jsonArray.length()];
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-
-            data[i] = jsonArray.getString(i);
-        }
-
-        return data;
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new Phrase(
+                        jsonArray.getJSONObject(i).getString("phrase"),
+                        jsonArray.getJSONObject(i).getString("message")
+                ))
+                .toArray(Phrase[]::new);
     }
 
     public static Link[] getLinks(String node) {
