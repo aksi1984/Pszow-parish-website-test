@@ -6,16 +6,16 @@ import qa.enums.Browser;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
-public class WebDriverProvider {
+public class PlaywrightProvider {
 
-    public static WebDriverFactory getFactory(Browser browser) {
+    public static PlaywrightBrowserLauncher getFactory(Browser browser) {
 
-        String packages = WebDriverFactory.class.getPackage().getName();
+        String packages = PlaywrightBrowserLauncher.class.getPackage().getName();
         Reflections reflections = new Reflections(packages);
 
-        Set<Class<? extends WebDriverFactory>> factories = reflections.getSubTypesOf(WebDriverFactory.class);
+        Set<Class<? extends PlaywrightBrowserLauncher>> factories = reflections.getSubTypesOf(PlaywrightBrowserLauncher.class);
 
-        Class<? extends WebDriverFactory> inherited = factories
+        Class<? extends PlaywrightBrowserLauncher> inherited = factories
                 .stream()
                 .filter(i -> i.getName().toLowerCase().contains(browser.getName().toLowerCase()))
                 .findFirst()
@@ -25,7 +25,7 @@ public class WebDriverProvider {
 
         try {
 
-            return (WebDriverFactory) Class.forName(inheritedClassName).getConstructor().newInstance();
+            return (PlaywrightBrowserLauncher) Class.forName(inheritedClassName).getConstructor().newInstance();
 
         } catch (ClassNotFoundException | InvocationTargetException | InstantiationException |
                  IllegalAccessException | NoSuchMethodException e) {
