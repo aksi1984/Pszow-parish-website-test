@@ -12,6 +12,12 @@ public class SearchEngineSteps {
         this.searchEngine = searchEngine;
     }
 
+    @Step("Click the icon")
+    public void clickIcon() {
+
+        searchEngine.clickIcon();
+    }
+
     @Step("Enter a phrase")
     public void enterPhrase(String phrase) {
 
@@ -19,8 +25,13 @@ public class SearchEngineSteps {
     }
 
     @Step("Press the 'Enter' key")
-    public void pressTheEnterKey() throws IllegalAccessException {
+    public void pressTheEnterKey() {
 
         searchEngine.submit();
+    }
+
+    public SearchEngine getSearchEngine() {
+
+        return searchEngine;
     }
 }
