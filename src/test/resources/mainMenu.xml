@@ -7,16 +7,6 @@
         <listener class-name="qa.listeners.Listener"/>
     </listeners>
 
-    <parameter name="pastoralURL" value="https://bazylika-pszow.pl/?page_id=882"/>
-    <parameter name="intentionsURL" value="https://bazylika-pszow.pl/?page_id=859"/>
-    <parameter name="funeralsURL" value="https://bazylika-pszow.pl/?page_id=13831"/>
-    <parameter name="stewardsURL" value="https://bazylika-pszow.pl/?page_id=861"/>
-    <parameter name="priestsURL" value="https://bazylika-pszow.pl/?page_id=879"/>
-    <parameter name="officeURL" value="https://bazylika-pszow.pl/?page_id=1321"/>
-    <parameter name="contactURL" value="https://bazylika-pszow.pl/?page_id=106"/>
-    <parameter name="supportURL" value="https://bazylika-pszow.pl/?page_id=18182"/>
-    <parameter name="confessionURL" value="https://bazylika-pszow.pl/?page_id=18885"/>
-
     <test verbose="2" name="C:/Projekty/Testowanie/Pszow-parish-website">
         <classes>
             <class name="MainMenuTest"/>
