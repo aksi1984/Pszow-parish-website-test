@@ -1,46 +1,38 @@
 package qa.components;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import qa.base.BasePage;
 
 public class SearchEngine extends BasePage {
 
-    private final Actions actions;
-    public SearchEngine(WebDriver driver) {
+    private final Locator icon;
+    private final Locator searchField;
+    public SearchEngine(Page page) {
 
-        super(driver);
+        super(page);
 
-        actions = new Actions(getDriver());
+        icon = page.locator(".search-toggle-li");
+        searchField = page.locator("#ocean-search-form-1");
     }
 
-    @FindBy(id = "s")
-    WebElement field;
+    public void clickIcon() {
 
-    public void clickOnField() throws IllegalAccessException {
-
-        waitUntilElementIsVisible(field);
-        actions.moveByOffset(field.getLocation().x + 30, field.getLocation().y + 5).click();
-        actions.perform();
+        icon.click();
     }
 
-    public String getFieldValue() {
-
-        return field.getAttribute("value");
-    }
     public void setPhrase(String phrase) {
 
-        String script = "document.getElementById('s').value=" + "'" + phrase+ "'";
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
-        javascriptExecutor.executeScript(script);
+        searchField.fill(phrase);
     }
 
-    public void submit() throws IllegalAccessException {
+    public void submit() {
 
-        waitUntilElementIsVisible(field);
-        field.submit();
+        searchField.press("Enter");
+    }
+
+    public Locator getSearchField() {
+
+        return searchField;
     }
 }
