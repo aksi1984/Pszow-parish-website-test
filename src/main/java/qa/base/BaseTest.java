@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import qa.driver.PlaywrightBrowserLauncher;
 import qa.driver.PlaywrightProvider;
 import qa.enums.Browser;
-import qa.enums.URLs;
 import qa.jsonreader.JSONReader;
 
 import java.io.IOException;
@@ -28,7 +27,6 @@ public class BaseTest {
 
         launcher = PlaywrightProvider.getFactory(Browser.CHROME);
         launcher.create();
-        launcher.goToPage(URLs.HOME_PAGE.getName());
     }
 
     protected void goToPage(String url) {
