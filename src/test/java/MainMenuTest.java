@@ -1,24 +1,23 @@
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import qa.base.BaseTest;
-import qa.components.MainMenu;
 import org.testng.annotations.Test;
+import qa.components.Menu;
 import qa.data.Link;
 import qa.dataprovider.Provider;
-import qa.stepclasses.MainMenuSteps;
+import qa.stepclasses.MenuSteps;
 import io.qameta.allure.*;
 
 @Epic("Smoke tests")
 @Feature("Main menu links tests")
 public class MainMenuTest extends BaseTest {
 
-    private static MainMenuSteps mainMenuSteps;
+    private static MenuSteps menuSteps;
 
     @BeforeMethod
     public void create() {
 
-        MainMenu mainMenu = new MainMenu(getDriver());
-        mainMenuSteps = new MainMenuSteps(mainMenu);
+        menuSteps = new MenuSteps(new Menu(getPage()));
     }
 
     @Test(dataProvider = "mainMenu", dataProviderClass = Provider.class)
@@ -27,9 +26,9 @@ public class MainMenuTest extends BaseTest {
     @Story("Clicking the main menu link")
     public void links(Link link) throws IllegalAccessException {
 
-        mainMenuSteps.clickLink(link.getData());
+        menuSteps.clickLink(link.getData());
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), link.getUrl(),
+        Assert.assertEquals(getPage().url(), link.getUrl(),
                 "The page with address: " + link.getUrl() + " has not been opened");
     }
 }
