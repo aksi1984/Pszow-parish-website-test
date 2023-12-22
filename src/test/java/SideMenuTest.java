@@ -6,6 +6,7 @@ import qa.base.BaseTest;
 import qa.components.Menu;
 import qa.data.Link;
 import qa.dataprovider.Provider;
+import qa.enums.URLs;
 import qa.stepclasses.MenuSteps;
 
 
@@ -17,6 +18,8 @@ public class SideMenuTest extends BaseTest {
 
     @BeforeMethod
     public void create() {
+
+        goToPage(URLs.HOME_PAGE.getName());
 
         menuSteps = new MenuSteps(new Menu(getPage()));
     }
