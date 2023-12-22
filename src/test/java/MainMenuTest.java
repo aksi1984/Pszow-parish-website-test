@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import qa.components.Menu;
 import qa.data.Link;
 import qa.dataprovider.Provider;
+import qa.enums.URLs;
 import qa.stepclasses.MenuSteps;
 import io.qameta.allure.*;
 
@@ -16,6 +17,8 @@ public class MainMenuTest extends BaseTest {
 
     @BeforeMethod
     public void create() {
+
+        goToPage(URLs.HOME_PAGE.getName());
 
         menuSteps = new MenuSteps(new Menu(getPage()));
     }
