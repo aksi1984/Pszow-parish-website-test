@@ -1,54 +1,18 @@
 package qa.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import qa.toby.ToBy;
-
-import java.time.Duration;
+import com.microsoft.playwright.Page;
 
 public class BasePage {
 
-    private final WebDriver driver;
-    private final JavascriptExecutor javascriptExecutor;
-    private final WebDriverWait wait;
+    private final Page page;
 
-    protected BasePage(WebDriver driver) {
+    protected BasePage(Page page) {
 
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-
-        javascriptExecutor = (JavascriptExecutor) driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.page = page;
     }
 
-    protected WebDriver getDriver() {
+    protected Page getPage() {
 
-        return driver;
-    }
-
-    protected void waitUntilElementIsVisible(WebElement element) throws IllegalAccessException {
-
-        By locator = ToBy.get(element);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    protected void clickElement(WebElement element) {
-
-        javascriptExecutor.executeScript("arguments[0].click();", element);
-    }
-
-    protected String getURL() {
-
-        return driver.getCurrentUrl();
-    }
-
-    protected void wait(int seconds) {
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+        return page;
     }
 }
