@@ -1,6 +1,6 @@
 package qa.enums;
 
-public enum Browser {
+public enum BrowserType {
 
     CHROME("chrome"),
     FIREFOX("firefox"),
@@ -8,7 +8,7 @@ public enum Browser {
 
     private final String name;
 
-    Browser(String name) {
+    BrowserType(String name) {
 
         this.name = name;
     }
