@@ -2,7 +2,8 @@ package qa.enums;
 
 public enum URLs {
 
-    HOME_PAGE("https://bazylika-pszow.pl/");
+    HOME_PAGE("https://bazylika-pszow.pl/"),
+    PHOTO_GALLERY("https://bazylika-pszow.pl/galeria-zdjec/");
 
     private final String name;
 
