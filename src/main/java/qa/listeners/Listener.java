@@ -27,7 +27,6 @@ public class Listener implements ITestListener {
     public void onStart(ITestContext iTestContext) {
 
         logger.info("SUITE: " + iTestContext.getSuite().getName());
-        logger.info("-".repeat(60));
     }
 
     @Override
@@ -39,14 +38,13 @@ public class Listener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
 
-        logger.info("Test name: " + iTestResult.getTestName());
+        logger.info("Method: " + iTestResult.getMethod().toString());
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
 
         logger.info("PASSED on method: " + iTestResult.getMethod());
-        logger.info("-".repeat(60));
         saveTextLog(getTestMethodName(iTestResult) + "- passed");
     }
 
@@ -54,7 +52,6 @@ public class Listener implements ITestListener {
     public void onTestFailure(ITestResult iTestResult) {
 
         logger.error("FAILED on method: " + iTestResult.getMethod());
-        logger.info("-".repeat(60));
         saveTextLog(getTestMethodName(iTestResult) + "- failed");
     }
 
@@ -62,7 +59,6 @@ public class Listener implements ITestListener {
     public void onTestSkipped(ITestResult iTestResult) {
 
         logger.info("SKIPPED on method: " + iTestResult.getMethod());
-        logger.info("-".repeat(60));
         saveTextLog(getTestMethodName(iTestResult) + "- skipped");
     }
 }
