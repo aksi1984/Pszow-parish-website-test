@@ -2,7 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import qa.base.BaseTest;
 import org.testng.annotations.Test;
-import qa.components.Menu;
+import qa.pageobject.Menu;
 import qa.data.Link;
 import qa.dataprovider.Provider;
 import qa.enums.URLs;
