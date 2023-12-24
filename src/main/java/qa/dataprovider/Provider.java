@@ -5,15 +5,33 @@ import qa.jsonreader.JSONReader;
 
 public class Provider {
 
+    @DataProvider(name = "mainMenu")
+    public Object[] mainMenu() {
+
+        return JSONReader.getLinks("mainMenu");
+    }
+
+    @DataProvider(name = "sideMenu")
+    public Object[] sideMenu() {
+
+        return JSONReader.getLinks("sideMenu");
+    }
+
+    @DataProvider(name = "media")
+    public Object[] media() {
+
+        return JSONReader.getLinks("media");
+    }
+
     @DataProvider(name = "correctPhrase")
     public Object[] correctPhrase() {
 
-        return JSONReader.get("searchEngine", "positive");
+        return JSONReader.getPhrases("correct");
     }
 
     @DataProvider(name = "incorrectPhrase")
     public Object[] incorrectPhrase() {
 
-        return  JSONReader.get("searchEngine", "negative");
+        return  JSONReader.getPhrases("incorrect");
     }
 }
