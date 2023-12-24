@@ -1,4 +1,4 @@
-package qa.components;
+package qa.pageobject;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
