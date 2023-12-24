@@ -1,4 +1,4 @@
-package qa.driver;
+package qa.playwright;
 
 import com.microsoft.playwright.BrowserType;
 
@@ -11,5 +11,7 @@ public class EdgePlaywrightBrowserLauncher extends PlaywrightBrowserLauncher {
         browser = playwright
                 .chromium()
                 .launch(new BrowserType.LaunchOptions().setChannel("msedge").setHeadless(false).setSlowMo(50));
+
+        setBrowserInfo();
     }
 }

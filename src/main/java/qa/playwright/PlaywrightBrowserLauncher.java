@@ -1,9 +1,11 @@
-package qa.driver;
+package qa.playwright;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class PlaywrightBrowserLauncher {
 
@@ -11,6 +13,13 @@ public abstract class PlaywrightBrowserLauncher {
     protected Browser browser;
     protected BrowserContext browserContext;
     protected Page page;
+    private final Logger logger = LoggerFactory.getLogger(PlaywrightBrowserLauncher.class);
+
+    protected void setBrowserInfo() {
+
+        logger.info("-".repeat(60));
+        logger.info("Browser: " + browser.browserType().name() + " " + browser.version());
+    }
 
     protected void setPlaywright() {
 
@@ -39,6 +48,9 @@ public abstract class PlaywrightBrowserLauncher {
 
     public void goToPage(String url) {
 
+        logger.info("Opening page with url: " + url + " ...");
+        logger.info("-".repeat(60));
+
         page.navigate(url);
     }
 
@@ -53,6 +65,8 @@ public abstract class PlaywrightBrowserLauncher {
     }
 
     public void close() {
+
+        logger.info("Closing page...");
 
         page.close();
     }

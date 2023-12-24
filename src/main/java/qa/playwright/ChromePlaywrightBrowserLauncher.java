@@ -1,9 +1,8 @@
-package qa.driver;
+package qa.playwright;
 
 import com.microsoft.playwright.BrowserType;
 
-public class FirefoxPlaywrightBrowserLauncher extends PlaywrightBrowserLauncher {
-
+public class ChromePlaywrightBrowserLauncher extends PlaywrightBrowserLauncher {
 
     @Override
     protected void setBrowser() {
@@ -11,5 +10,7 @@ public class FirefoxPlaywrightBrowserLauncher extends PlaywrightBrowserLauncher 
         browser = playwright
                 .chromium()
                 .launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setSlowMo(50));
+
+        setBrowserInfo();
     }
 }

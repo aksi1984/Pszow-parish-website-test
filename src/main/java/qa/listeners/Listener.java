@@ -1,12 +1,16 @@
 package qa.listeners;
 
 import io.qameta.allure.Attachment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import qa.extentreports.ExtentReportsManager;
+
 
 public class Listener implements ITestListener {
+
+    private final Logger logger = LoggerFactory.getLogger(Listener.class);
 
     private static String getTestMethodName(ITestResult iTestResult) {
 
@@ -22,43 +26,43 @@ public class Listener implements ITestListener {
     @Override
     public void onStart(ITestContext iTestContext) {
 
-        ExtentReportsManager.create(iTestContext.getSuite().getName());
+        logger.info("SUITE: " + iTestContext.getSuite().getName());
+        logger.info("-".repeat(60));
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
 
-        ExtentReportsManager.setTestEnvironment();
-        ExtentReportsManager.flush();
+        logger.info("FINISH");
     }
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
 
-
+        logger.info("Test name: " + iTestResult.getTestName());
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
 
-        ExtentReportsManager.setTestPassed("Test passed on method " + iTestResult.getMethod().getMethodName());
-
+        logger.info("PASSED on method: " + iTestResult.getMethod());
+        logger.info("-".repeat(60));
         saveTextLog(getTestMethodName(iTestResult) + "- passed");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
 
-        ExtentReportsManager.setTestFailed(iTestResult.getThrowable().getMessage());
-
+        logger.error("FAILED on method: " + iTestResult.getMethod());
+        logger.info("-".repeat(60));
         saveTextLog(getTestMethodName(iTestResult) + "- failed");
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
 
-        ExtentReportsManager.setTestSkipped("Test skipped on method " + iTestResult.getMethod().getMethodName());
-
+        logger.info("SKIPPED on method: " + iTestResult.getMethod());
+        logger.info("-".repeat(60));
         saveTextLog(getTestMethodName(iTestResult) + "- skipped");
     }
 }

@@ -1,11 +1,9 @@
-package qa.driver;
+package qa.playwright;
 
 import com.microsoft.playwright.BrowserType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ChromePlaywrightBrowserLauncher extends PlaywrightBrowserLauncher {
+public class FirefoxPlaywrightBrowserLauncher extends PlaywrightBrowserLauncher {
+
 
     @Override
     protected void setBrowser() {
@@ -13,5 +11,7 @@ public class ChromePlaywrightBrowserLauncher extends PlaywrightBrowserLauncher {
         browser = playwright
                 .chromium()
                 .launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setSlowMo(50));
+
+        setBrowserInfo();
     }
 }

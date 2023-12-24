@@ -1,4 +1,4 @@
-package qa.driver;
+package qa.playwright;
 
 import org.reflections.Reflections;
 import qa.enums.BrowserType;
