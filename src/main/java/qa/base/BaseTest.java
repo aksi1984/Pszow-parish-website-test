@@ -1,5 +1,6 @@
 package qa.base;
 
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -32,6 +33,11 @@ public class BaseTest {
     protected void goToPage(String url) {
 
         launcher.goToPage(url);
+    }
+
+    protected BrowserContext getBrowserContext() {
+
+        return launcher.getBrowserContext();
     }
 
     protected Page getPage() {
