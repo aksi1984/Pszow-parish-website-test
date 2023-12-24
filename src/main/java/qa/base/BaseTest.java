@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import qa.driver.PlaywrightBrowserLauncher;
 import qa.driver.PlaywrightProvider;
-import qa.enums.Browser;
+import qa.enums.BrowserType;
 import qa.jsonreader.JSONReader;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class BaseTest {
     @BeforeMethod
     public void launch() {
 
-        launcher = PlaywrightProvider.getFactory(Browser.CHROME);
+        launcher = PlaywrightProvider.getFactory(BrowserType.CHROME);
         launcher.create();
     }
 
