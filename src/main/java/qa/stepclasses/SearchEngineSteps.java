@@ -1,7 +1,7 @@
 package qa.stepclasses;
 
 import io.qameta.allure.Step;
-import qa.components.SearchEngine;
+import qa.pageobject.SearchEngine;
 
 public class SearchEngineSteps {
 

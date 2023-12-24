@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
-import qa.components.Media;
+import qa.pageobject.Media;
 import qa.data.Link;
 import qa.dataprovider.Provider;
 import qa.enums.URLs;

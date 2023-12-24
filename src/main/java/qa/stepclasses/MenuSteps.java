@@ -1,7 +1,7 @@
 package qa.stepclasses;
 
 import io.qameta.allure.Step;
-import qa.components.Menu;
+import qa.pageobject.Menu;
 
 public class MenuSteps {
 

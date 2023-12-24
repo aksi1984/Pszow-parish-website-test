@@ -1,7 +1,7 @@
 package qa.stepclasses;
 
 import io.qameta.allure.Step;
-import qa.components.Media;
+import qa.pageobject.Media;
 
 public class MediaIconsSteps {
 
