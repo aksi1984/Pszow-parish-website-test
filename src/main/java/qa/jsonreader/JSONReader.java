@@ -54,4 +54,13 @@ public class JSONReader {
                 ))
                 .toArray(Link[]::new);
     }
+
+    public static String[] getGalleryButtonNames(String node) {
+
+        JSONArray jsonArray = getJSONArray("galleries", node);
+
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(jsonArray::getString)
+                .toArray(String[]::new);
+    }
 }
