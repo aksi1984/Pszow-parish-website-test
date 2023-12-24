@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Main menu test suite">
+<suite name="Main menu tests">
 
     <listeners>
         <listener class-name="qa.listeners.Listener"/>
     </listeners>
 
-    <test verbose="2" name="C:/Projekty/Testowanie/Pszow-parish-website">
+    <test verbose="2" name="Main menu functionalities">
         <classes>
             <class name="MainMenuTest"/>
         </classes>
