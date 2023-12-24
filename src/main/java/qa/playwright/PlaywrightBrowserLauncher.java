@@ -52,6 +52,11 @@ public abstract class PlaywrightBrowserLauncher {
         page.navigate(url);
     }
 
+    public BrowserContext getBrowserContext() {
+
+        return browserContext;
+    }
+
     public Page getPage() {
 
         return page;
