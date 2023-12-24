@@ -17,7 +17,6 @@ public abstract class PlaywrightBrowserLauncher {
 
     protected void setBrowserInfo() {
 
-        logger.info("-".repeat(60));
         logger.info("Browser: " + browser.browserType().name() + " " + browser.version());
     }
 
@@ -49,7 +48,6 @@ public abstract class PlaywrightBrowserLauncher {
     public void goToPage(String url) {
 
         logger.info("Opening page with url: " + url + " ...");
-        logger.info("-".repeat(60));
 
         page.navigate(url);
     }
