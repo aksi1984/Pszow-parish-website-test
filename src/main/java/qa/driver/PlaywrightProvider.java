@@ -1,14 +1,14 @@
 package qa.driver;
 
 import org.reflections.Reflections;
-import qa.enums.Browser;
+import qa.enums.BrowserType;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 public class PlaywrightProvider {
 
-    public static PlaywrightBrowserLauncher getFactory(Browser browser) {
+    public static PlaywrightBrowserLauncher getFactory(BrowserType browserType) {
 
         String packages = PlaywrightBrowserLauncher.class.getPackage().getName();
         Reflections reflections = new Reflections(packages);
@@ -17,9 +17,9 @@ public class PlaywrightProvider {
 
         Class<? extends PlaywrightBrowserLauncher> inherited = factories
                 .stream()
-                .filter(i -> i.getName().toLowerCase().contains(browser.getName().toLowerCase()))
+                .filter(i -> i.getName().toLowerCase().contains(browserType.getName().toLowerCase()))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Could not find factory with name: " + browser.getName()));
+                .orElseThrow(() -> new IllegalStateException("Could not find factory with name: " + browserType.getName()));
 
         String inheritedClassName = inherited.getName();
 
