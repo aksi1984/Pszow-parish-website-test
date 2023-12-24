@@ -5,12 +5,10 @@
     <suite-files>
         <suite-file path="mainMenu.xml"/>
         <suite-file path="sideMenu.xml"/>
-        <suite-file path="middleMenu.xml"/>
-        <suite-file path="basilicaInside.xml"/>
-        <suite-file path="sacramentsPage.xml"/>
-        <suite-file path="parishCommunityPage.xml"/>
+        <suite-file path="mediaIcons.xml"/>
         <suite-file path="searchEngine.xml"/>
-        <suite-file path="cookies.xml"/>
+        <suite-file path="photoGalleryPage.xml"/>
+        <!--<suite-file path="cookies.xml"/>-->
     </suite-files>
 </suite>
 
