@@ -1,16 +1,15 @@
 package qa.driver;
 
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 
 public abstract class PlaywrightBrowserLauncher {
 
     protected Playwright playwright;
     protected Browser browser;
+    protected BrowserContext browserContext;
     protected Page page;
 
     protected void setPlaywright() {
@@ -18,9 +17,14 @@ public abstract class PlaywrightBrowserLauncher {
         playwright = Playwright.create();
     }
 
+    protected void setBrowserContext() {
+
+        browserContext = browser.newContext();
+    }
+
     protected void setPage() {
 
-        page = browser.newPage();
+        page = browserContext.newPage();
     }
 
     protected abstract void setBrowser();
@@ -29,6 +33,7 @@ public abstract class PlaywrightBrowserLauncher {
 
         setPlaywright();
         setBrowser();
+        setBrowserContext();
         setPage();
     }
 
@@ -40,6 +45,11 @@ public abstract class PlaywrightBrowserLauncher {
     public Page getPage() {
 
         return page;
+    }
+
+    public Browser getBrowser() {
+
+        return browser;
     }
 
     public void close() {
