@@ -23,6 +23,12 @@ public class Provider {
         return JSONReader.getLinks("media");
     }
 
+    @DataProvider(name = "GAL_photos")
+    public Object[] GAL_photos() {
+
+        return JSONReader.getGalleryButtonNames("photos");
+    }
+
     @DataProvider(name = "correctPhrase")
     public Object[] correctPhrase() {
 
