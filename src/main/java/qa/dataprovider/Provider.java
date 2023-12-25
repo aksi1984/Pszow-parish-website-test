@@ -8,19 +8,19 @@ public class Provider {
     @DataProvider(name = "mainMenu")
     public Object[] mainMenu() {
 
-        return JSONReader.getLinks("mainMenu");
+        return JSONReader.getLinksData("mainMenu");
     }
 
     @DataProvider(name = "sideMenu")
     public Object[] sideMenu() {
 
-        return JSONReader.getLinks("sideMenu");
+        return JSONReader.getLinksData("sideMenu");
     }
 
     @DataProvider(name = "media")
     public Object[] media() {
 
-        return JSONReader.getLinks("media");
+        return JSONReader.getLinksData("media");
     }
 
     @DataProvider(name = "GAL_photos")
