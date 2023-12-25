@@ -4,36 +4,43 @@
 
             {
                 "data": "menu-item-24562",
+                "linkName": "OGŁOSZENIA DUSZPASTERSKIE",
                 "url": "https://bazylika-pszow.pl/ogloszenia-duszpasterskie/"
             },
 
             {
                 "data": "menu-item-1458",
+                "linkName": "INTENCJE MSZALNE",
                 "url": "https://bazylika-pszow.pl/intencje-mszalne/"
             },
 
             {
                 "data": "menu-item-13836",
+                "linkName": "POGRZEBY",
                 "url": "https://bazylika-pszow.pl/pogrzeby/"
             },
 
             {
                 "data": "menu-item-19387",
+                "linkName": "SZAFARZE",
                 "url": "https://bazylika-pszow.pl/szafarze/"
             },
 
             {
                 "data": "menu-item-1466",
+                "linkName": "KAPŁANI",
                 "url": "https://bazylika-pszow.pl/kaplani/"
             },
 
             {
                 "data": "menu-item-18889",
+                "linkName": "SPOWIEDŹ W BAZYLICE",
                 "url": "https://bazylika-pszow.pl/spowiedz-w-bazylice/"
             },
 
             {
                 "data": "menu-item-24859",
+                "linkName": "KANCELARIA",
                 "url": "https://bazylika-pszow.pl/kancelaria/"
             }
         ],
@@ -42,141 +49,163 @@
 
             {
                 "data": "menu-item-24716",
+                "linkName": "Kontakt",
                 "url": "https://bazylika-pszow.pl/kontakt/"
             },
 
             {
                 "data": "menu-item-24864",
+                "linkName": "Historia parafii",
                 "url": "https://bazylika-pszow.pl/historia-parafii/"
             },
 
             {
                 "data": "menu-item-24866",
+                "linkName": "Kalwaria Pszowska",
                 "url": "https://bazylika-pszow.pl/kalwaria-pszowska/"
             },
 
             {
                 "data": "menu-item-24867",
+                "linkName": "Pielgrzymki",
                 "url": "https://bazylika-pszow.pl/pielgrzymki/"
             },
 
             {
                 "data": "menu-item-24862",
+                "linkName": "Galeria zdjęć",
                 "url": "https://bazylika-pszow.pl/galeria-zdjec/"
             },
 
             {
                 "data": "menu-item-24863",
+                "linkName": "Galeria filmów",
                 "url": "https://bazylika-pszow.pl/galeria-filmow/"
             },
 
             {
                 "data": "menu-item-24860",
+                "linkName": "Wsparcie parafii",
                 "url": "https://bazylika-pszow.pl/wsparcie-parafii/"
             },
 
             {
                 "data": "menu-item-24798",
+                "linkData": "Chrzest",
                 "url": "https://bazylika-pszow.pl/sakramenty/"
             },
 
             {
                 "data": "menu-item-24872",
+                "linkName": "Pierwsza Komunia",
                 "url": "https://bazylika-pszow.pl/piersza-komunia/"
             },
 
             {
                 "data": "menu-item-24799",
+                "linkName": "Bierzmowanie",
                 "url": "https://bazylika-pszow.pl/bierzmowanie/"
             },
 
             {
                 "data": "menu-item-24797",
+                "linkName": "Małżeństwo",
                 "url": "https://bazylika-pszow.pl/sakrament-malzenstwa/"
             },
 
             {
                 "data": "menu-item-24879",
+                "linkName": "Caritas i działalność charytatywna",
                 "url": "https://bazylika-pszow.pl/caritas-i-dzialalnosc-charytatywna/"
             },
 
             {
                 "data": "menu-item-24880",
+                "linkName": "Parafialna Rada Duszpasterska",
                 "url": "https://bazylika-pszow.pl/parafialna-rada-duszpasterska/"
             },
 
             {
                 "data": "menu-item-24881",
-                "url": "https://bazylika-pszow.pl/ministranci/"
-            },
-
-            {
-                "data": "menu-item-24881",
+                "linkName": "Ministranci i LSO",
                 "url": "https://bazylika-pszow.pl/ministranci/"
             },
 
             {
                 "data": "menu-item-24882",
+                "linkName": "Dzieci Maryi",
                 "url": "https://bazylika-pszow.pl/dzieci-maryi-2/"
             },
 
             {
                 "data": "menu-item-24883",
+                "linkName": "Oaza młodzieżowa",
                 "url": "https://bazylika-pszow.pl/oaza-mlodziezowa/"
             },
 
             {
                 "data": "menu-item-24886",
+                "linkName": "Domowy Kościół",
                 "url": "https://bazylika-pszow.pl/ruch-domowy-kosciol/"
             },
 
             {
                 "data": "menu-item-24887",
+                "linkName": "Katecheza dorosłych",
                 "url": "https://bazylika-pszow.pl/katecheza-doroslych/"
             },
 
             {
                 "data": "menu-item-24889",
+                "linkData": "PoCo",
                 "url": "https://bazylika-pszow.pl/grupa-poco/"
             },
 
             {
                 "data": "menu-item-24891",
+                "linkData": "Legion Maryi",
                 "url": "https://bazylika-pszow.pl/legion-maryi/"
             },
 
             {
                 "data": "menu-item-24894",
+                "linkData": "Żywy Różaniec",
                 "url": "https://bazylika-pszow.pl/bractwo-zywego-rozanca/"
             },
 
             {
                 "data": "menu-item-24902",
+                "linkData": "Wspólnota Matki Miłosiernego",
                 "url": "https://bazylika-pszow.pl/wspolnota-matki-milosiernego/"
             },
 
             {
                 "data": "menu-item-24725",
+                "linkData": "Litania do Pani Uśmiechniętej",
                 "url": "https://bazylika-pszow.pl/litania-do-pani-usmiechnietej/"
             },
 
             {
                 "data": "menu-item-24875",
+                "linkName": "Regulamn Cmentarza",
                 "url": "https://bazylika-pszow.pl/regulamin-cmentarza/"
             },
 
             {
                 "data": "menu-item-24727",
+                "linkName": "Delegat ds. ochrony dzieci i młodzieży",
                 "url": "https://bazylika-pszow.pl/delegat-ds-ochrony-dzieci-i-mlodziezy/"
             },
 
             {
                 "data": "menu-item-24876",
+                "linkName": "Archidiecezja Katowicka",
                 "url": "https://www.archidiecezjakatowicka.pl/"
             },
 
             {
                 "data": "menu-item-24877",
+                "linkName": "Cytania liturgiczne",
                 "url": "https://www.paulus.org.pl/czytania"
             }
         ],
@@ -185,11 +214,13 @@
 
             {
                 "data": "Facebook (opens in a new tab)",
+                "linkName": "Facebook",
                 "url": "https://www.facebook.com"
             },
 
             {
                 "data": "Youtube (opens in a new tab)",
+                "linkName": "YouTube",
                 "url": "https://consent.youtube.com/"
             }
         ]
