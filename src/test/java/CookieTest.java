@@ -1,13 +1,20 @@
 import com.microsoft.playwright.options.Cookie;
 import io.qameta.allure.*;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.enums.URLs;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
-@Epic("Smoke tests")
+@Epic("E2E")
 @Feature("Cookie tests")
 public class CookieTest extends BaseTest {
 
@@ -22,63 +29,101 @@ public class CookieTest extends BaseTest {
         return getBrowserContext().cookies();
     }
 
+    private boolean isUsingHTTPS() throws URISyntaxException {
+
+        URI uri = new URI(getPage().url());
+        return uri.getScheme().equalsIgnoreCase("https");
+    }
+
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if cookies are empty")
-    @Story("Checking the set of cookies size")
+    @Description("Checking if the cookies list is not empty")
+    @Story("Checking the list of cookies size")
     public void setOfCookiesShouldNotBeEmpty() {
 
-        Assert.assertFalse(getCookies().isEmpty());
+        Assert.assertFalse(getCookies().isEmpty(),
+                "No cookies found");
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the 'secure' value is not null")
-    @Story("Checking the 'cookie_notice_accepted' value")
-    public void theSecureValueShouldNotBeNull() {
+    @Description("Checking if the 'secure' value is not null")
+    @Story("Checking the 'secure' value")
+    public void theSecureValueShouldNotBeNull() throws URISyntaxException {
 
-        getCookies().forEach(cookie -> Assert.assertNotNull(cookie.secure));
-    }
+        if (isUsingHTTPS()) {
 
-    @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the 'secure' value is true")
-    @Story("Checking the 'cookie_notice_accepted' value")
-    public void theSecureValueShouldBeTrue() {
+            getCookies().forEach(cookie -> Assert.assertNotNull(cookie.secure,
+                    "The 'secure' value in the '" + cookie.name + "' cookie is null"));
 
-        getCookies().forEach(cookie -> Assert.assertTrue(cookie.secure));
-    }
+        } else {
 
-    @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the 'expiry' value is not null")
-    @Story("Checking the 'cookie_notice_accepted' value")
-    public void theExpiryValueShouldNotBeNull() {
-
-        getCookies().forEach(cookie -> Assert.assertNotNull(cookie.expires));
-    }
-
-    @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the 'expiry' value is in the future")
-    @Story("Checking the 'expiry' value")
-    public void theExpiryValueShouldBeInTheFuture() {
-
-        for (Cookie cookie : getCookies()) {
-
-            String cookieName = cookie.name;
-
+            throw new SkipException("The website does not use the 'https' protocol");
         }
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the domain is correct")
+    @Description("Checking if the 'secure' value is true")
+    @Story("Checking the 'secure' value")
+    public void theSecureValueShouldBeTrue() throws URISyntaxException {
+
+        if (isUsingHTTPS()) {
+
+            getCookies().forEach(cookie -> Assert.assertTrue(cookie.secure,
+                    "The 'secure' value in the '" + cookie.name + "' cookie is false"));
+
+        } else {
+
+            throw new SkipException("The website does not use the 'https' protocol");
+        }
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Checking if the expiration data is not null")
+    @Story("Checking the expiration data")
+    public void theExpirationDataShouldNotBeNull() {
+
+        getCookies().forEach(cookie -> Assert.assertNotNull(cookie.expires,
+                "The expiration data is null"));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Checking if the expiration date value is not infinite")
+    @Story("Checking the expiration date value")
+    public void expirationDateShouldNotBeInfinite() {
+
+        getCookies().forEach(cookie -> Assert.assertFalse(Double.isInfinite(cookie.expires),
+                "The expiration date value is infinite"));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Checking if the expiration date is in the future")
+    @Story("Checking the expiration date")
+    public void theExpirationDataShouldBeInTheFuture() {
+
+        for (Cookie cookie : getCookies()) {
+
+            Instant instant = Instant.ofEpochSecond(cookie.expires.longValue());
+            LocalDateTime dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+
+            Assert.assertTrue(dateTime.isAfter(LocalDateTime.now()),
+                    "The expiration date is in the past: " + dateTime);
+        }
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Checking if the domain is correct")
     @Story("Checking the domain")
     public void theDomainShouldBeCorrect() {
 
         String expectedDomainName = "bazylika-pszow.pl";
 
-        getCookies().forEach(c -> Assert.assertEquals(c.domain, expectedDomainName));
+        getCookies().forEach(c -> Assert.assertEquals(c.domain, expectedDomainName,
+                "Incorrect domain"));
     }
 }
