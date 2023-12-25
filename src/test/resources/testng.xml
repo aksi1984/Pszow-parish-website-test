@@ -8,7 +8,7 @@
         <suite-file path="mediaIcons.xml"/>
         <suite-file path="searchEngine.xml"/>
         <suite-file path="photoGalleryPage.xml"/>
-        <!--<suite-file path="cookies.xml"/>-->
+        <suite-file path="cookies.xml"/>
     </suite-files>
 </suite>
 
