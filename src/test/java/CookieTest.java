@@ -37,7 +37,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the cookies list is not empty")
+    @Description("Checking whether the cookies list is not empty")
     @Story("Checking the list of cookies size")
     public void setOfCookiesShouldNotBeEmpty() {
 
@@ -47,7 +47,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the 'secure' value is not null")
+    @Description("Checking whether the 'secure' value is not null")
     @Story("Checking the 'secure' value")
     public void theSecureValueShouldNotBeNull() throws URISyntaxException {
 
@@ -64,7 +64,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the 'secure' value is true")
+    @Description("Checking whether the 'secure' value is true")
     @Story("Checking the 'secure' value")
     public void theSecureValueShouldBeTrue() throws URISyntaxException {
 
@@ -81,7 +81,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the expiration data is not null")
+    @Description("Checking whether the expiration data is not null")
     @Story("Checking the expiration data")
     public void theExpirationDataShouldNotBeNull() {
 
@@ -91,7 +91,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the expiration date value is not infinite")
+    @Description("Checking whether the expiration date value is not infinite")
     @Story("Checking the expiration date value")
     public void expirationDateShouldNotBeInfinite() {
 
@@ -101,7 +101,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the expiration date is in the future")
+    @Description("Checking whether the expiration date is in the future")
     @Story("Checking the expiration date")
     public void theExpirationDataShouldBeInTheFuture() {
 
@@ -117,7 +117,7 @@ public class CookieTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking if the domain is correct")
+    @Description("Checking whether the domain is correct")
     @Story("Checking the domain")
     public void theDomainShouldBeCorrect() {
 

@@ -4,13 +4,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.pageobject.Menu;
-import qa.data.Link;
+import qa.data.LinkData;
 import qa.dataprovider.Provider;
 import qa.enums.URLs;
 import qa.stepclasses.MenuSteps;
 
 
-@Epic("Smoke tests")
+@Epic("E2E")
 @Feature("Side menu links tests")
 public class SideMenuTest extends BaseTest {
 
@@ -26,13 +26,14 @@ public class SideMenuTest extends BaseTest {
 
     @Test(dataProvider = "sideMenu", dataProviderClass = Provider.class)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: checking if page opens after clicking on the side menu link.")
-    @Story("Clicking the side menu link")
-    public void links(Link link) throws IllegalAccessException {
+    public void links(LinkData data) throws IllegalAccessException {
 
-        menuSteps.clickLink(link.getData());
+        Allure.description("Checking whether the page opens after clicking the '" + data.getLinkName() +  "' link.");
+        Allure.story("Clicking the '" + data.getLinkName() + "' link");
 
-        Assert.assertEquals(getPage().url(), link.getUrl(),
-                "The page with address: " + link.getUrl() + " has not been opened");
+        menuSteps.clickLink(data.getData());
+
+        Assert.assertEquals(getPage().url(), data.getUrl(),
+                "The page with address: " + data.getUrl() + " has not been opened");
     }
 }

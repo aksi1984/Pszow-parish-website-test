@@ -3,13 +3,13 @@ import org.testng.annotations.BeforeMethod;
 import qa.base.BaseTest;
 import org.testng.annotations.Test;
 import qa.pageobject.Menu;
-import qa.data.Link;
+import qa.data.LinkData;
 import qa.dataprovider.Provider;
 import qa.enums.URLs;
 import qa.stepclasses.MenuSteps;
 import io.qameta.allure.*;
 
-@Epic("Smoke tests")
+@Epic("E2E")
 @Feature("Main menu links tests")
 public class MainMenuTest extends BaseTest {
 
@@ -25,13 +25,14 @@ public class MainMenuTest extends BaseTest {
 
     @Test(dataProvider = "mainMenu", dataProviderClass = Provider.class)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: checking if the announcements page opens after clicking the main menu link.")
-    @Story("Clicking the main menu link")
-    public void links(Link link) throws IllegalAccessException {
+    public void links(LinkData data) throws IllegalAccessException {
 
-        menuSteps.clickLink(link.getData());
+        Allure.description("Checking whether the page opens after clicking the '" + data.getLinkName() +  "' link.");
+        Allure.story("Clicking the '" + data.getLinkName() + "' link");
 
-        Assert.assertEquals(getPage().url(), link.getUrl(),
-                "The page with address: " + link.getUrl() + " has not been opened");
+        menuSteps.clickLink(data.getData());
+
+        Assert.assertEquals(getPage().url(), data.getUrl(),
+                "The page with address: " + data.getUrl() + " has not been opened");
     }
 }

@@ -11,7 +11,7 @@ import qa.enums.URLs;
 import qa.stepclasses.SearchEngineSteps;
 
 
-@Epic("Smoke tests")
+@Epic("E2E")
 @Feature("Search engine tests")
 public class SearchEngineTest extends BaseTest {
 
@@ -40,7 +40,7 @@ public class SearchEngineTest extends BaseTest {
 
     @Test(priority = 1)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: testing whether the search field will be visible after clicking the search engine icon")
+    @Description("Checking whether the search field will be visible after clicking the search engine icon")
     @Epic("Checking the search field visibility")
     public void searchFieldVisibility() {
 
@@ -51,9 +51,10 @@ public class SearchEngineTest extends BaseTest {
 
     @Test(priority = 2, dataProvider = "correctPhrase", dataProviderClass = Provider.class)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: testing whether articles will be found after searching with with a correct phrase")
-    @Epic("Searching with a correct phrase")
     public void correctPhrase(Phrase phrase) {
+
+        Allure.description("Checking whether articles will be found after searching with '" + phrase.getPhrase() + "' as the correct phrase");
+        Allure.story("Searching with a correct phrase");
 
         fill(phrase.getPhrase());
 
@@ -63,9 +64,10 @@ public class SearchEngineTest extends BaseTest {
 
     @Test(priority = 3, dataProvider = "incorrectPhrase", dataProviderClass = Provider.class)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test description: testing whether articles will be found after searching with with an incorrect phrase")
-    @Epic("Searching with an incorrect phrase")
     public void incorrectPhrase(Phrase phrase) {
+
+        Allure.description("Checking whether articles will be found after searching with '" + phrase.getPhrase() + "' as the incorrect phrase");
+        Allure.story("Searching with an incorrect phrase");
 
         fill(phrase.getPhrase());
 

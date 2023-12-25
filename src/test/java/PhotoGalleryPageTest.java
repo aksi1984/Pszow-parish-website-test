@@ -13,13 +13,13 @@ import qa.stepclasses.GalleryPageSteps;
 
 
 @Epic("E2E")
-@Feature("Photo gallery page buttons test")
+@Feature("Photo gallery page buttons tests")
 public class PhotoGalleryPageTest extends BaseTest {
 
     private GalleryPageSteps galleryPageSteps;
 
     @BeforeMethod
-    public void create() throws IllegalAccessException {
+    public void create() {
 
         goToPage(URLs.PHOTO_GALLERY.getName());
 
@@ -28,7 +28,7 @@ public class PhotoGalleryPageTest extends BaseTest {
 
     @Test(dataProvider = "GAL_photos", dataProviderClass = Provider.class)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test description: checking if the presbytery page opens after clicking the button")
+    @Description("Checking whether the presbytery page opens after clicking the button")
     @Story("Clicking the button")
     public void presbyteryLink(String name) {
 
