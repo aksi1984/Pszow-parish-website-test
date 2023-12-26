@@ -3,7 +3,7 @@ package qa.dataprovider;
 import org.testng.annotations.DataProvider;
 import qa.jsonreader.JSONReader;
 
-public class Provider {
+public class DataProviders {
 
     @DataProvider(name = "mainMenu")
     public Object[] mainMenu() {
@@ -23,10 +23,16 @@ public class Provider {
         return JSONReader.getLinksData("media");
     }
 
-    @DataProvider(name = "GAL_photos")
-    public Object[] GAL_photos() {
+    @DataProvider(name = "GAL_alwaysExpanded")
+    public Object[] GAL_alwaysExpanded() {
 
-        return JSONReader.getGalleryButtonNames("photos");
+        return JSONReader.getGalleryButtonNames("alwaysExpanded");
+    }
+
+    @DataProvider(name = "GAL_alwaysClosed")
+    public Object[] GAL_alwaysClosed() {
+
+        return JSONReader.getGalleryButtonNames("alwaysClosed");
     }
 
     @DataProvider(name = "correctPhrase")
