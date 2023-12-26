@@ -28,9 +28,10 @@ public class PhotoGalleryPageTest extends BaseTest {
 
     @Test(dataProvider = "GAL_photos", dataProviderClass = Provider.class)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checking whether the presbytery page opens after clicking the button")
-    @Story("Clicking the button")
     public void presbyteryLink(String name) {
+
+        Allure.description("checking whether the photo gallery list will be expanded after clicking the '" + name + "' button");
+        Allure.story("Clicking the '" + name + "' button");
 
         Locator region = getPage().getByRole(AriaRole.REGION, new Page.GetByRoleOptions().setName(name));
         Assert.assertFalse(region.isVisible());
