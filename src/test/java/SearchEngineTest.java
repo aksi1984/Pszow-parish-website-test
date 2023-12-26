@@ -6,7 +6,7 @@ import qa.base.BaseTest;
 import qa.pageobject.SearchEngine;
 import qa.pageobject.SearchResults;
 import qa.data.Phrase;
-import qa.dataprovider.Provider;
+import qa.dataprovider.DataProviders;
 import qa.enums.URLs;
 import qa.stepclasses.SearchEngineSteps;
 
@@ -49,7 +49,7 @@ public class SearchEngineTest extends BaseTest {
         Assert.assertTrue(searchEngineSteps.getSearchEngine().getSearchField().isVisible());
     }
 
-    @Test(priority = 2, dataProvider = "correctPhrase", dataProviderClass = Provider.class)
+    @Test(priority = 2, dataProvider = "correctPhrase", dataProviderClass = DataProviders.class)
     @Severity(SeverityLevel.CRITICAL)
     public void correctPhrase(Phrase phrase) {
 
@@ -62,7 +62,7 @@ public class SearchEngineTest extends BaseTest {
         Assert.assertNotEquals(searchResults.getTextContent(), phrase.getMessage());
     }
 
-    @Test(priority = 3, dataProvider = "incorrectPhrase", dataProviderClass = Provider.class)
+    @Test(priority = 3, dataProvider = "incorrectPhrase", dataProviderClass = DataProviders.class)
     @Severity(SeverityLevel.CRITICAL)
     public void incorrectPhrase(Phrase phrase) {
 

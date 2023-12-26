@@ -4,7 +4,7 @@ import qa.base.BaseTest;
 import org.testng.annotations.Test;
 import qa.pageobject.Menu;
 import qa.data.LinkData;
-import qa.dataprovider.Provider;
+import qa.dataprovider.DataProviders;
 import qa.enums.URLs;
 import qa.stepclasses.MenuSteps;
 import io.qameta.allure.*;
@@ -23,7 +23,7 @@ public class MainMenuTest extends BaseTest {
         menuSteps = new MenuSteps(new Menu(getPage()));
     }
 
-    @Test(dataProvider = "mainMenu", dataProviderClass = Provider.class)
+    @Test(dataProvider = "mainMenu", dataProviderClass = DataProviders.class)
     @Severity(SeverityLevel.CRITICAL)
     public void links(LinkData data) throws IllegalAccessException {
 

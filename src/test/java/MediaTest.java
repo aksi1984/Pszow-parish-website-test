@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.pageobject.Media;
 import qa.data.LinkData;
-import qa.dataprovider.Provider;
+import qa.dataprovider.DataProviders;
 import qa.enums.URLs;
 import qa.stepclasses.MediaIconsSteps;
 
@@ -35,7 +35,7 @@ public class MediaTest extends BaseTest {
         Assert.assertTrue(page.url().contains(data.getUrl()));
     }
 
-    @Test(dataProvider = "media", dataProviderClass = Provider.class)
+    @Test(dataProvider = "media", dataProviderClass = DataProviders.class)
     @Severity(SeverityLevel.CRITICAL)
     public void icon(LinkData data) {
 

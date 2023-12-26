@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.pageobject.Menu;
 import qa.data.LinkData;
-import qa.dataprovider.Provider;
+import qa.dataprovider.DataProviders;
 import qa.enums.URLs;
 import qa.stepclasses.MenuSteps;
 
@@ -24,7 +24,7 @@ public class SideMenuTest extends BaseTest {
         menuSteps = new MenuSteps(new Menu(getPage()));
     }
 
-    @Test(dataProvider = "sideMenu", dataProviderClass = Provider.class)
+    @Test(dataProvider = "sideMenu", dataProviderClass = DataProviders.class)
     @Severity(SeverityLevel.CRITICAL)
     public void links(LinkData data) throws IllegalAccessException {
 

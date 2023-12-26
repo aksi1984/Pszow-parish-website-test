@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
-import qa.dataprovider.Provider;
+import qa.dataprovider.DataProviders;
 import qa.enums.URLs;
 import qa.pageobject.GalleryPage;
 import qa.stepclasses.GalleryPageSteps;
@@ -26,11 +26,24 @@ public class PhotoGalleryPageTest extends BaseTest {
         galleryPageSteps = new GalleryPageSteps(new GalleryPage(getPage()));
     }
 
-    @Test(dataProvider = "GAL_photos", dataProviderClass = Provider.class)
+    @Test(dataProvider = "GAL_alwaysExpanded", dataProviderClass = DataProviders.class)
     @Severity(SeverityLevel.NORMAL)
-    public void presbyteryLink(String name) {
+    @Description("Checking whether the photo gallery of  is always expanded")
+    @Story("")
+    public void alwaysExpanded(String name) {
 
-        Allure.description("checking whether the photo gallery list will be expanded after clicking the '" + name + "' button");
+        Allure.description("Checking whether the photo gallery of " + name + " year is always expanded");
+        Allure.story("Checking the gallery of " + name + " year");
+
+        Locator region = getPage().getByRole(AriaRole.REGION, new Page.GetByRoleOptions().setName(name));
+        Assert.assertTrue(region.isVisible());
+    }
+
+    @Test(dataProvider = "GAL_alwaysClosed", dataProviderClass = DataProviders.class)
+    @Severity(SeverityLevel.NORMAL)
+    public void alwaysClosed(String name) {
+
+        Allure.description("Checking whether the photo gallery list will be expanded after clicking the '" + name + "' button");
         Allure.story("Clicking the '" + name + "' button");
 
         Locator region = getPage().getByRole(AriaRole.REGION, new Page.GetByRoleOptions().setName(name));
