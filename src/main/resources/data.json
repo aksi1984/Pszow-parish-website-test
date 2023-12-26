@@ -91,7 +91,7 @@
 
             {
                 "data": "menu-item-24798",
-                "linkData": "Chrzest",
+                "linkName": "Chrzest",
                 "url": "https://bazylika-pszow.pl/sakramenty/"
             },
 
@@ -157,31 +157,31 @@
 
             {
                 "data": "menu-item-24889",
-                "linkData": "PoCo",
+                "linkName": "PoCo",
                 "url": "https://bazylika-pszow.pl/grupa-poco/"
             },
 
             {
                 "data": "menu-item-24891",
-                "linkData": "Legion Maryi",
+                "linkName": "Legion Maryi",
                 "url": "https://bazylika-pszow.pl/legion-maryi/"
             },
 
             {
                 "data": "menu-item-24894",
-                "linkData": "Żywy Różaniec",
+                "linkName": "Żywy Różaniec",
                 "url": "https://bazylika-pszow.pl/bractwo-zywego-rozanca/"
             },
 
             {
                 "data": "menu-item-24902",
-                "linkData": "Wspólnota Matki Miłosiernego",
+                "linkName": "Wspólnota Matki Miłosiernego",
                 "url": "https://bazylika-pszow.pl/wspolnota-matki-milosiernego/"
             },
 
             {
                 "data": "menu-item-24725",
-                "linkData": "Litania do Pani Uśmiechniętej",
+                "linkName": "Litania do Pani Uśmiechniętej",
                 "url": "https://bazylika-pszow.pl/litania-do-pani-usmiechnietej/"
             },
 
