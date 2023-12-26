@@ -228,7 +228,7 @@
 
     "galleries": {
 
-        "photos": [
+        "alwaysClosed": [
 
             "Pamiątki z Sanktuarium",
             "2010",
@@ -242,7 +242,11 @@
             "2019",
             "2020",
             "2021",
-            "2022",
+            "2022"
+        ],
+
+        "alwaysExpanded": [
+
             "2023"
         ]
     },
